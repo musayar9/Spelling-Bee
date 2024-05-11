@@ -39,8 +39,10 @@ export default function Game({ language, dictionary }) {
       } else {
         setPoint((prev) => (prev += 1));
       }
+
+      lettersShuffle = dictionary.letters.sort(() => Math.random() - 0.5);
     } else {
-      if ( filter === undefined && point >= 2) {
+      if (filter === undefined && point >= 2) {
         setPoint((prev) => (prev -= 2));
       }
     }

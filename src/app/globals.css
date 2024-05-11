@@ -27,7 +27,7 @@
 .hex::after {
   content: "";
   display: block;
-  padding-bottom: 87.602%; /* = 100 / tan(60) * 1.5 */
+  padding-bottom:86.602%; /* = 100 / tan(60) * 1.5 */
 }
 
 .hexIn {
