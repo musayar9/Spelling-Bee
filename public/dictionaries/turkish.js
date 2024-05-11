@@ -23,6 +23,7 @@ const turkish = {
     "anıt",
     "takım",
     "nakarat",
+    "kanat",
   ],
 };
- export default turkish
+export default turkish;
