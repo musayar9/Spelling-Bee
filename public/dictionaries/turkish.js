@@ -16,7 +16,6 @@ const turkish = {
     "katı",
     "tarık",
     "tırnak",
-    "katı",
     "nar",
     "nara",
     "kanıt",

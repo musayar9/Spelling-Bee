@@ -57,10 +57,7 @@
     background-color: rgba(183, 175, 175, 0.9); /* #b7afafe6 rgba() ile değiştirildi */
 }
 
-input[type="text"] {
-    background: transparent;
-    border: none;
-}
+
 
 .hex p {
     width: 100%;
