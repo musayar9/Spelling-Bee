@@ -40,7 +40,9 @@ export default function Game({ language, dictionary }) {
         setPoint((prev) => (prev += 1));
       }
     } else {
-      console.log("data isnot found");
+      if ( filter === undefined && point >= 2) {
+        setPoint((prev) => (prev -= 2));
+      }
     }
 
     setNewValue();
@@ -49,7 +51,7 @@ export default function Game({ language, dictionary }) {
   const handleDelete = () => {
     setNewValue("");
     setWords("");
-       setFilterWords("");
+    setFilterWords("");
     setPoint(0);
   };
   // console.log("words", words);
