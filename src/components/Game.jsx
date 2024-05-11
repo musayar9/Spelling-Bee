@@ -4,12 +4,12 @@ import { useRef, useState } from "react";
 
 export default function Game({ language, dictionary }) {
   // console.log("dictionary", dictionary.letters);
-  const {point, setPoint} = useGlobalContext()
-  
+  const { point, setPoint } = useGlobalContext();
+
   const [words, setWords] = useState("");
   const [newValue, setNewValue] = useState("");
   const [filterWords, setFilterWords] = useState("");
-  let lettersShuffle = dictionary.letters
+  let lettersShuffle = dictionary.letters;
   const ref = useRef();
   const handleClick = (e) => {
     const clickedElement = e.target.closest("li"); // Tıklanan li öğesini bulun
@@ -21,19 +21,36 @@ export default function Game({ language, dictionary }) {
 
   function handleShowText() {
     // let newData = words.join("");
-    const filter = dictionary.possible_words.filter((word, index) => {
+    const filter = dictionary.possible_words.find((word, index) => {
       //  console.log(word);
       return word === words;
     });
     setFilterWords(filter);
 
+    if (filter !== undefined) {
+      if (filter.length === 7) {
+        setPoint((prev) => (prev += filter?.length));
+      } else if (words.length === 6) {
+        setPoint((prev) => (prev += filter?.length));
+      } else if (words.length === 5) {
+        setPoint((prev) => (prev += filter?.length));
+      } else if (words.length === 4) {
+        setPoint((prev) => (prev += filter?.length));
+      } else {
+        setPoint((prev) => (prev += 1));
+      }
+    } else {
+      console.log("data isnot found");
+    }
+
     setNewValue();
   }
-
+  console.log("point", point);
   const handleDelete = () => {
     setNewValue("");
     setWords("");
-    setWords([]);
+       setFilterWords("");
+    setPoint(0);
   };
   // console.log("words", words);
   // console.log(filterWords, "filter");
@@ -41,7 +58,7 @@ export default function Game({ language, dictionary }) {
   //   console.log(word);
   //   return word === words;
   // });
-
+  console.log(filterWords);
   return (
     <div className="max-w-6xl mx-auto my-8 ">
       <div className="flex items-center flex-col justify-center">
@@ -49,7 +66,7 @@ export default function Game({ language, dictionary }) {
           className="text-center border-b border-slate-300  w-72 p-4 outline-none"
           value={words}
           placeholder="Your Words"
-          readonly
+          readOnly
         />
 
         <div className=" mt-12 gap-2">
