@@ -18,9 +18,8 @@ export default function Game({ language, dictionary }) {
   let lettersShuffle = dictionary.letters;
   const ref = useRef();
   const handleClick = (e) => {
-    const clickedElement = e.target.closest("li"); 
-    const content = clickedElement.querySelector("p").textContent; 
-  
+    const clickedElement = e.target.closest("li");
+    const content = clickedElement.querySelector("p").textContent;
 
     setWords([...words, content]);
   };
@@ -52,17 +51,13 @@ export default function Game({ language, dictionary }) {
         toast.success(`Success Your Found Words`);
 
         setWords("");
-              lettersShuffle = dictionary.letters.sort(
-                () => Math.random() - 0.5
-              );
+        lettersShuffle = dictionary.letters.sort(() => Math.random() - 0.5);
       } else {
         console.log("bu kelşme");
         toast.error(`Bu kelime Bulundu`);
       }
 
       setTimer((prev) => (prev += 15));
-
-
 
       setTimeout(() => {
         setIsCorrect(false);
@@ -78,7 +73,6 @@ export default function Game({ language, dictionary }) {
     let timeout = setTimeout(() => {
       setIsCorrectPoint(null);
     }, 1500);
-
 
     return () => clearTimeout(timeout);
   }
@@ -221,6 +215,28 @@ export default function Game({ language, dictionary }) {
           </button>
         </div>
       </div>
+
+      {matchWords.length > 0 && (
+        <div className="border border-slate-200 rounded-md max-w-xl mx-auto my-2 p-4">
+          <h6 className="text-center">Words Found</h6>
+          <ul className="">
+         
+              <li className="flex items-center justify-between">
+                <span> Word</span>
+                <span>Score</span>
+              </li>
+     
+            {matchWords.map((word, index) => {
+              return (
+                <li key={index} className="flex items-center justify-between">
+                  <span> {word}</span>
+                  <span className="text-emerald-700">+{word.length}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
       <ToastContainer
         autoClose={1400}
         pauseOnFocusLoss={true}
