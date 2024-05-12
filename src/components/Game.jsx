@@ -107,136 +107,178 @@ export default function Game({ language, dictionary }) {
 
   // console.log("mathcWords", matchWords);
   return (
-    <div className="max-w-6xl mx-auto my-8 ">
-      <div className="flex max-w-2xl mx-auto  justify-between  p-4">
-        <div className="bg-emerald-400 rounded-md  w-28 p-2 text-white font-bold text-center relative">
-          <span className="">{formattedTime(timer)}</span>{" "}
-          {isCorrect && (
-            <>
-              <p className="absolute -right-3 -top-3">
-                <span className="relative flex h-8 w-8">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                  <span className="relative inline-flex items-center justify-center rounded-full h-8 w-8 p-2 text-[10px] bg-sky-500">
-                    +15
-                  </span>
-                </span>
-              </p>
-            </>
+    <div className="mx-auto max-w-8xl my-8">
+      <div className=" grid grid-cols-9 ">
+        <div className="p-4 w-96">
+          {matchWords.length > 0 && (
+            <div className="rounded-md max-w-2xl mx-auto my-2 p-4">
+              <h6 className="text-center text-2xl -mt-4">Words Found</h6>
+              {/* <ul className="">
+                <li className="flex items-center justify-between">
+                  <span> Word</span>
+                  <span>Score</span>
+                </li>
+
+                {matchWords.map((word, index) => {
+                  return (
+                    <li
+                      key={index}
+                      className="flex items-center justify-between"
+                    >
+                      <span> {word}</span>
+                      <span className="text-emerald-700">+{word.length}</span>
+                    </li>
+                  );
+                })}
+              </ul> */}
+
+              <div className="overflow-x-auto h-72">
+                <table className="table p-2 ">
+                  {/* head */}
+                  <thead>
+                    <tr>
+                      <th>Order</th>
+                      <th>Word</th>
+                      <th>Point</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {/* row 1 */}
+                    {matchWords.map((word, index) => (
+                      <tr key={index}>
+                        <th>{index + 1}</th>
+                        <td>{word}</td>
+                        <td>{word.length}</td>
+                      </tr>
+                    ))}
+
+                    {/* row 2 */}
+                  </tbody>
+                  <tfoot>
+                    <tr className="">
+                      <th>Sum Words:{matchWords.length} </th>
+                      <th>Total Score</th>
+                     
+                      <th>{point}</th>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
           )}
         </div>
 
-        <div className="bg-sky-600 rounded-md px-4 py-2 text-white font-bold relative text-center">
-          <span className="text-sm"> Score : {point}</span>
-
-          <>
-            {isCorrectPoint === true && (
-              <>
-                <p className="absolute -right-3 -top-3">
-                  <span className="relative flex h-8 w-8">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                    <span className="relative inline-flex items-center justify-center rounded-full h-8 w-8 p-2 text-[10px] bg-emerald-500">
-                      +{filterWords.length}
+        <div className="col-span-7">
+          <div className="flex max-w-xl mx-auto  justify-between  p-4">
+            <div className="bg-emerald-400 rounded-md  w-28 p-2 text-white font-bold text-center relative">
+              <span className="">{formattedTime(timer)}</span>{" "}
+              {isCorrect && (
+                <>
+                  <p className="absolute -right-3 -top-3">
+                    <span className="relative flex h-8 w-8">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                      <span className="relative inline-flex items-center justify-center rounded-full h-8 w-8 p-2 text-[10px] bg-sky-500">
+                        +15
+                      </span>
                     </span>
-                  </span>
-                </p>
+                  </p>
+                </>
+              )}
+            </div>
+
+            <div className="bg-sky-600 rounded-md px-4 py-2 text-white font-bold relative text-center">
+              <span className="text-sm"> Score : {point}</span>
+
+              <>
+                {isCorrectPoint === true && (
+                  <>
+                    <p className="absolute -right-3 -top-3">
+                      <span className="relative flex h-8 w-8">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                        <span className="relative inline-flex items-center justify-center rounded-full h-8 w-8 p-2 text-[10px] bg-emerald-500">
+                          +{filterWords.length}
+                        </span>
+                      </span>
+                    </p>
+                  </>
+                )}
+
+                {isCorrectPoint === false && (
+                  <p className="absolute -right-3 -top-3">
+                    <span className="relative flex h-8 w-8">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                      <span className="relative inline-flex items-center justify-center rounded-full h-8 w-8 p-2 text-[10px] bg-red-500">
+                        {point >= 2 && <span>-2</span>}
+                      </span>
+                    </span>
+                  </p>
+                )}
               </>
-            )}
+            </div>
+          </div>
 
-            {isCorrectPoint === false && (
-              <p className="absolute -right-3 -top-3">
-                <span className="relative flex h-8 w-8">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                  <span className="relative inline-flex items-center justify-center rounded-full h-8 w-8 p-2 text-[10px] bg-red-500">
-                    {point >= 2 && <span>-2</span>}
-                  </span>
-                </span>
-              </p>
-            )}
-          </>
-        </div>
-      </div>
+          <div className="flex items-center flex-col justify-center">
+            <input
+              className="text-center border-b border-slate-300  w-72 p-4 outline-none"
+              value={words}
+              placeholder="Your Words"
+              readOnly
+            />
 
-      <div className="flex items-center flex-col justify-center">
-        <input
-          className="text-center border-b border-slate-300  w-72 p-4 outline-none"
-          value={words}
-          placeholder="Your Words"
-          readOnly
-        />
+            <div className=" mt-12 gap-2">
+              <ul id="hexGrid">
+                {lettersShuffle.map((letter, index) => (
+                  <li
+                    key={index}
+                    className="hex"
 
-        <div className=" mt-12 gap-2">
-          <ul id="hexGrid">
-            {lettersShuffle.map((letter, index) => (
-              <li
-                key={index}
-                className="hex"
+                    // onClick={handleClick} ref={ref}
+                  >
+                    <div className="hexIn">
+                      <a className="hexLink">
+                        <p>{letter}</p>
+                      </a>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
 
-                // onClick={handleClick} ref={ref}
+          <div className="mt-6 flex flex-col items-center justify-center">
+            <input
+              type="text"
+              className="border border-slate-300  p-4  rounded-md text-center outline-yellow-400 "
+              value={words}
+              disabled={isInput}
+              placeholder="Enter Words"
+              onChange={(e) => {
+                setWords(e.target.value);
+
+                if (e.target.value) {
+                  setIsLetter(true);
+                }
+              }}
+            />
+
+            <div className="flex items-center justify-between mt-12 w-72">
+              <button
+                className="rounded-md bg-red-500 px-4 py-2 text-gray-100"
+                onClick={handleDelete}
               >
-                <div className="hexIn">
-                  <a className="hexLink">
-                    <p>{letter}</p>
-                  </a>
-                </div>
-              </li>
-            ))}
-          </ul>
+                Delete
+              </button>
+              <button
+                onClick={handleShowText}
+                className="rounded-md bg-[#58c7f3] px-4 py-2 text-gray-100"
+              >
+                Check
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="mt-6 flex flex-col items-center justify-center">
-        <input
-          type="text"
-          className="border border-slate-300  p-4  rounded-md text-center outline-yellow-400 "
-          value={words}
-          disabled={isInput}
-          placeholder="Enter Words"
-          onChange={(e) => {
-            setWords(e.target.value);
-
-            if (e.target.value) {
-              setIsLetter(true);
-            }
-          }}
-        />
-
-        <div className="flex items-center justify-between mt-12 w-72">
-          <button
-            className="rounded-md bg-red-500 px-4 py-2 text-gray-100"
-            onClick={handleDelete}
-          >
-            Delete
-          </button>
-          <button
-            onClick={handleShowText}
-            className="rounded-md bg-[#58c7f3] px-4 py-2 text-gray-100"
-          >
-            Check
-          </button>
-        </div>
-      </div>
-
-      {matchWords.length > 0 && (
-        <div className="border border-slate-200 rounded-md max-w-xl mx-auto my-2 p-4">
-          <h6 className="text-center">Words Found</h6>
-          <ul className="">
-         
-              <li className="flex items-center justify-between">
-                <span> Word</span>
-                <span>Score</span>
-              </li>
-     
-            {matchWords.map((word, index) => {
-              return (
-                <li key={index} className="flex items-center justify-between">
-                  <span> {word}</span>
-                  <span className="text-emerald-700">+{word.length}</span>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      )}
       <ToastContainer
         autoClose={1400}
         pauseOnFocusLoss={true}
