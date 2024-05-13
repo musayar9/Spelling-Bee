@@ -8,7 +8,7 @@ const FormArea = ({ handleSubmit, language }) => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          className="border border-slate-300  p-2  rounded-s-lg text-center outline-yellow-400 "
+          className="border border-amber-400 p-2  rounded-s-full text-center outline-yellow-400 "
           value={words}
           disabled={isInput}
           placeholder={language === "turkish" ? "Kelime Girin" : "Enter Words"}
@@ -24,7 +24,7 @@ const FormArea = ({ handleSubmit, language }) => {
         <button
           type="submit"
           disabled={isInput}
-          className="rounded-e-lg  bg-amber-400 p-2 text-gray-900 font-bold hover:bg-amber-500 duration-150 ease-in-out"
+          className="rounded-e-full border border-amber-400  bg-amber-400 p-2 px-6 text-gray-900 font-bold hover:bg-amber-500 duration-150 ease-in-out"
         >
           {language === "turkish" ? "Gönder" : "Check"}
         </button>

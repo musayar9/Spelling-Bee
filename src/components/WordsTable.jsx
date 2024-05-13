@@ -13,7 +13,7 @@ const WordsTable = ({ language }) => {
       {matchWords.length > 0 && (
         <div className="relative">
           <button
-            className="btn "
+            className="btn rounded-full px-6 py-2"
             onClick={() => document.getElementById("my_modal_4").showModal()}
           >
             {language === "turkish" ? "Kelimelerin" : "Show Words"}

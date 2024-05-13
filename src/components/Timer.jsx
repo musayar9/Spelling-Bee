@@ -4,7 +4,7 @@ const Timer = () => {
   const { timer, isCorrect } = useGlobalContext();
 
   return (
-    <div className="bg-emerald-400 rounded-md  w-28 p-2 text-white font-bold text-center relative">
+    <div className="bg-emerald-400 rounded-full  w-28 p-2 text-white font-bold text-center relative">
       <span className="">{formattedTime(timer)}</span>{" "}
       {isCorrect && (
         <>

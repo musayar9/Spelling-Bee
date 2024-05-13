@@ -15,7 +15,7 @@ const ResultModal = ({ dictionary, language }) => {
               {/* Modal content */}
               <div className="relative     ">
                 <div className="flex items-center ">
-                  <p className="text-2xl mx-auto  pl-4">
+                  <p className="text-2xl mx-auto  pl-4 ">
                     {language === "turkish" ? "Puanınız" : "Your Score"}
                   </p>
                   <button
@@ -79,8 +79,8 @@ const ResultModal = ({ dictionary, language }) => {
                   </ul>
                   <div className="flex items-center justify-center space-x-4 mt-5 text-sm">
                     <p className="text-2xl font-semibold">
-          
-                      {language === "turkish" ? "Toplam Puan" : " Total Point"} = 
+                      {language === "turkish" ? "Toplam Puan" : " Total Point"}{" "}
+                      =
                       <span className="font-bold pl-2 text-4xl text-amber-500">
                         {point}
                       </span>
@@ -89,7 +89,7 @@ const ResultModal = ({ dictionary, language }) => {
                 </div>
                 <div className="mt-4 flex items-center justify-end">
                   {" "}
-                  <RestartBtn />
+                  <RestartBtn language={language}/>
                 </div>
               </div>
             </div>

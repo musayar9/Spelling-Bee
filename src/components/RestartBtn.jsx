@@ -5,8 +5,8 @@ const RestartBtn = ({ language }) => {
 
   return (
     <button
-      className="  px-4 py-2  bg-rose-950 hover:bg-rose-800 duration-150
-         ease-in-out rounded-sm text-sm text-white"
+      className="rounded-full  px-6 py-2  bg-rose-950 hover:bg-rose-800 duration-150
+         ease-in-out  text-sm text-white"
       onClick={handleRestart}
     >
       {language === "turkish" ? "Tekrar Oyna" : "Play Again"}

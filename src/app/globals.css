@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 #hexGrid {
   display: grid;
   grid-gap: 6px;
@@ -27,7 +29,7 @@
 .hex::after {
   content: "";
   display: block;
-  padding-bottom:86.602%; /* = 100 / tan(60) * 1.5 */
+  padding-bottom: 86.602%; /* = 100 / tan(60) * 1.5 */
 }
 
 .hexIn {
@@ -78,7 +80,7 @@
   font-weight: 800;
   font-size: 1.4em;
   color: #000;
-  font-family: "Open Sans", sans-serif;
+
 }
 
 .hexLink:hover p,
