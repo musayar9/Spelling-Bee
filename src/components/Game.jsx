@@ -135,7 +135,7 @@ export default function Game({ language, dictionary }) {
 
   // console.log("mathcWords", matchWords);
   return (
-    <div className="mx-auto max-w-8xl my-8">
+    <div className="mx-auto max-w-8xl my-6">
       {/* <div className="p-4 w-96">
           {matchWords.length > 0 && (
             <div className="rounded-md max-w-2xl mx-auto my-2 p-4">
@@ -358,20 +358,20 @@ export default function Game({ language, dictionary }) {
           <button
             type="submit"
             disabled={isInput}
-            className="rounded-e-lg  bg-amber-400 p-2 text-gray-900 font-bold outline-yellow-400"
+            className="rounded-e-lg  bg-amber-400 p-2 text-gray-900 font-bold hover:bg-amber-500 duration-150 ease-in-out"
           >
             Check
           </button>
         </form>
 
-       {
-       timer===0 && <RestartBtn/>
-       
-       }
-    
+        {timer === 0 && (
+          <div className="mt-4 flex items-center justify-center">
+            {" "}
+            <RestartBtn />
+          </div>
+        )}
       </div>
-<button onClick={()=>setShow(true)}>Show Modak</button>
-     
+      <button onClick={() => setShow(true)}>Show Modak</button>
 
       {/* Show Results=  */}
       {show && (
@@ -391,47 +391,49 @@ export default function Game({ language, dictionary }) {
                   </button>
                 </div>
 
-                <div>
-                  <div className="my-8 ">
-                    <ul className="space-y-2">
-                      <li className="flex items-center justify-between border-b border-slate-300 p-3 text-sm">
-                        <span className="">Correct Word Count</span>
-                        <span>
-                          <span className="text-emerald-600 pr-1">
-                            {" "}
-                            {matchWords && matchWords.length}
-                          </span>
-                          || ({dictionary.possible_words.length})
+                <div className="mt-4 ">
+                  <ul className="space-y-2">
+                    <li className="flex items-center justify-between border-b border-slate-300 p-3 text-sm">
+                      <span className="">Correct Word Count</span>
+                      <span>
+                        <span className="text-emerald-600 pr-1">
+                          {" "}
+                          {matchWords && matchWords.length}
                         </span>
-                      </li>
+                        || ({dictionary.possible_words.length})
+                      </span>
+                    </li>
 
-                      <li className="flex items-center justify-between border-b border-slate-300 p-3 text-sm">
-                        <span className="">InCorrect Word Count</span>
-                        <span>
-                          <span className="text-red-600 pr-1">
-                            {" "}
-                            {inCorrectWord}
-                          </span>
-                          || ({dictionary.possible_words.length})
+                    <li className="flex items-center justify-between border-b border-slate-300 p-3 text-sm">
+                      <span className="">InCorrect Word Count</span>
+                      <span>
+                        <span className="text-red-600 pr-1">
+                          {" "}
+                          {inCorrectWord}
                         </span>
-                      </li>
-                      <li className="flex items-center justify-between border-b border-slate-300 p-3 text-sm">
-                        <span className="">Earned Second</span>
-                        <span>{matchWords.length * 15} sec.</span>
-                      </li>
-                      <li className="flex items-center justify-between border-b border-slate-300 p-3 text-sm">
-                        <span className="">Loser Second</span>
-                        <span>{inCorrectWord * 2} sec.</span>
-                      </li>
-                      <li className="flex items-center justify-between border-b border-slate-300 p-3 text-sm">
-                        <span className="">Total Point</span>
-                        <span>{point}</span>
-                      </li>
-                    </ul>
-                  </div>
+                        || ({dictionary.possible_words.length})
+                      </span>
+                    </li>
+                    <li className="flex items-center justify-between border-b border-slate-300 p-3 text-sm">
+                      <span className="">Earned Second</span>
+                      <span>{matchWords.length * 15} sec.</span>
+                    </li>
+                    <li className="flex items-center justify-between border-b border-slate-300 p-3 text-sm">
+                      <span className="">Loser Second</span>
+                      <span>{inCorrectWord * 2} sec.</span>
+                    </li>
+                  </ul>
+                  <p className="flex items-center justify-center space-x-4 mt-5 text-sm">
+                    <span className="text-xl font-semibold">Total Point</span>
+                    <span className="font-bold text-3xl text-amber-500">
+                      {point}
+                    </span>
+                  </p>
                 </div>
-                
-                <RestartBtn/>
+                <div className="mt-4 flex items-center justify-end">
+                  {" "}
+                  <RestartBtn />
+                </div>
               </div>
             </div>
           </div>

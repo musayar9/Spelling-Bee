@@ -1,11 +1,15 @@
+"use client";
 
-
+import { useGlobalContext } from "@/context/Context";
+import Game from "./Game";
 const EnglishGame = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  const { englishDictionary } = useGlobalContext();
 
-export default EnglishGame
+  return (
+    <>
+      <Game language={"english"} dictionary={englishDictionary} />
+    </>
+  );
+};
+
+export default EnglishGame;
