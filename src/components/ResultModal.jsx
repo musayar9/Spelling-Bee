@@ -11,7 +11,7 @@ const ResultModal = ({ dictionary, language }) => {
       {show && (
         <>
           <div className=" fixed  z-50 inset-0 bg-black bg-opacity-75 flex justify-center items-center w-full  ">
-            <div className=" absolute top-20 p-8 w-full max-w-xl max-h-full bg-white rounded-lg">
+            <div className=" absolute p-8 w-full max-w-xl max-h-full bg-white rounded-lg">
               {/* Modal content */}
               <div className="relative     ">
                 <div className="flex items-center ">
