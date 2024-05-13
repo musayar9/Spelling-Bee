@@ -7,8 +7,11 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { MdClose } from "react-icons/md";
 import RestartBtn from "./RestartBtn";
+import Timer from "./Timer";
+import WordsTable from "./WordsTable";
+import Point from "./Point";
 export default function Game({ language, dictionary }) {
-  // console.log("dictionary", dictionary.letters);
+
   const {
     point,
     setPoint,
@@ -105,209 +108,15 @@ export default function Game({ language, dictionary }) {
     return () => clearTimeout(timeout);
   }
 
-  // console.log("point", point);
-  const handleDelete = () => {
-    setNewValue("");
-    setWords("");
-    setFilterWords("");
-    setPoint(0);
-  };
-  // console.log("words", words);
-  // console.log(filterWords, "filter");
-  // const filter = dictionary.possible_words.filter((word, index) => {
-  //   console.log(word);
-  //   return word === words;
-  // });
-  // console.log(filterWords);
-  // console.log(timer);
-  // console.log(isCorrectPoint);
 
-  // useEffect(() => {
-  //   if (isCorrectPoint !== null) {
-  //     let timeout = setTimeout(() => {
-  //       setIsCorrectPoint(null);
-  //     }, 1500);
 
-  //     // Zamanlayıcıyı temizleme fonksiyonunu döndür
-  //     return () => clearTimeout(timeout);
-  //   }
-  // }, [isCorrectPoint]);
-
-  // console.log("mathcWords", matchWords);
   return (
     <div className="mx-auto max-w-8xl my-6">
-      {/* <div className="p-4 w-96">
-          {matchWords.length > 0 && (
-            <div className="rounded-md max-w-2xl mx-auto my-2 p-4">
-              <h6 className="text-center text-2xl -mt-4">Words Found</h6>
-              <ul className="">
-                <li className="flex items-center justify-between">
-                  <span> Word</span>
-                  <span>Score</span>
-                </li>
-
-                {matchWords.map((word, index) => {
-                  return (
-                    <li
-                      key={index}
-                      className="flex items-center justify-between"
-                    >
-                      <span> {word}</span>
-                      <span className="text-emerald-700">+{word.length}</span>
-                    </li>
-                  );
-                })}
-              </ul> 
-
-              <div className="overflow-x-auto h-72">
-                <table className="table p-2 ">
-       
-                  <thead>
-                    <tr>
-                      <th>Order</th>
-                      <th>Word</th>
-                      <th>Point</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-             
-                    {matchWords.map((word, index) => (
-                      <tr key={index}>
-                        <th>{index + 1}</th>
-                        <td>{word}</td>
-                        <td>{word.length}</td>
-                      </tr>
-                    ))}
-
-              
-                  </tbody>
-                  <tfoot>
-                    <tr className="">
-                      <th>Sum Words:{matchWords.length} </th>
-                      <th>Total Score</th>
-
-                      <th>{point}</th>
-                    </tr>
-                  </tfoot>
-                </table>
-              </div>
-              
-            </div>
-          )}
-        </div> */}
-
       <div className="flex max-w-xl mx-auto items-center justify-between  p-4">
-        <div className="bg-emerald-400 rounded-md  w-28 p-2 text-white font-bold text-center relative">
-          <span className="">{formattedTime(timer)}</span>{" "}
-          {isCorrect && (
-            <>
-              <p className="absolute -right-3 -top-3">
-                <span className="relative flex h-8 w-8">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                  <span className="relative inline-flex items-center justify-center rounded-full h-8 w-8 p-2 text-[10px] bg-sky-500">
-                    +15
-                  </span>
-                </span>
-              </p>
-            </>
-          )}
-        </div>
+        <Timer />
+        <WordsTable />
 
-        {/* You can open the modal using document.getElementById('ID').showModal() method */}
-
-        {matchWords.length > 0 && (
-          <div className="relative">
-            <button
-              className="btn "
-              onClick={() => document.getElementById("my_modal_4").showModal()}
-            >
-              Show Words
-            </button>
-            {isCorrect && (
-              <p className="absolute -right-3 -top-3">
-                <span className="relative flex h-8 w-8">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                  <span className="relative inline-flex items-center justify-center rounded-full h-8 w-8 p-2 text-[10px] bg-yellow-500 text-white font-bold">
-                    +1
-                  </span>
-                </span>
-              </p>
-            )}
-          </div>
-        )}
-
-        <dialog id="my_modal_4" className="modal">
-          <div className="modal-box w-11/12 max-w-2xl">
-            <h3 className="font-bold text-lg text-center my-4">Words Found!</h3>
-            <div className="overflow-x-auto h-64">
-              <table className="table p-2 ">
-                {/* head */}
-                <thead>
-                  <tr>
-                    <th>Order</th>
-                    <th>Word</th>
-                    <th>Point</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {/* row 1 */}
-                  {matchWords.map((word, index) => (
-                    <tr key={index}>
-                      <th>{index + 1}</th>
-                      <td>{word}</td>
-                      <td>+{word.length}</td>
-                    </tr>
-                  ))}
-
-                  {/* row 2 */}
-                </tbody>
-                <tfoot>
-                  <tr className="">
-                    <th>Sum Words:{matchWords.length} </th>
-                    <th>Total Score</th>
-
-                    <th>{point}</th>
-                  </tr>
-                </tfoot>
-              </table>
-            </div>
-            <div className="modal-action">
-              <form method="dialog">
-                <button className="btn">Close</button>
-              </form>
-            </div>
-          </div>
-        </dialog>
-
-        <div className="bg-sky-600 rounded-md px-4 py-2 text-white font-bold relative text-center">
-          <span className="text-sm"> Score : {point}</span>
-
-          <>
-            {isCorrectPoint === true && (
-              <>
-                <p className="absolute -right-3 -top-3">
-                  <span className="relative flex h-8 w-8">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                    <span className="relative inline-flex items-center justify-center rounded-full h-8 w-8 p-2 text-[10px] bg-emerald-500">
-                      +{filterWords.length}
-                    </span>
-                  </span>
-                </p>
-              </>
-            )}
-
-            {isCorrectPoint === false && (
-              <p className="absolute -right-3 -top-3">
-                <span className="relative flex h-8 w-8">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                  <span className="relative inline-flex items-center justify-center rounded-full h-8 w-8 p-2 text-[10px] bg-red-500">
-                    {point >= 2 && <span>-2</span>}
-                  </span>
-                </span>
-              </p>
-            )}
-          </>
-        </div>
+        <Point />
       </div>
 
       <div className="flex items-center flex-col justify-center">
@@ -423,12 +232,14 @@ export default function Game({ language, dictionary }) {
                       <span>{inCorrectWord * 2} sec.</span>
                     </li>
                   </ul>
-                  <p className="flex items-center justify-center space-x-4 mt-5 text-sm">
-                    <span className="text-xl font-semibold">Total Point</span>
-                    <span className="font-bold text-3xl text-amber-500">
+                  <div className="flex items-center justify-center space-x-4 mt-5 text-sm">
+                    <p className="text-2xl font-semibold">
+                      Total Point = <span className="font-bold text-3xl text-amber-500">
                       {point}
                     </span>
-                  </p>
+                    </p>
+               
+                  </div>
                 </div>
                 <div className="mt-4 flex items-center justify-end">
                   {" "}
