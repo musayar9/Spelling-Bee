@@ -1,7 +1,6 @@
 "use client";
 import { useGlobalContext } from "@/context/Context";
-import { useEffect, useRef, useState } from "react";
-import { formattedTime } from "./Funtcions";
+import { useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -10,41 +9,24 @@ import Timer from "./Timer";
 import WordsTable from "./WordsTable";
 import Point from "./Point";
 import ResultModal from "./ResultModal";
-import FormArea from "./FormArea"
+import FormArea from "./FormArea";
 import LettersHive from "./LettersHive";
 export default function Game({ language, dictionary }) {
   const {
-    point,
     setPoint,
-    isLetter,
-    setIsLetter,
     timer,
-    isInput,
     setTimer,
-    show,
     setShow,
     words,
     setWords,
-    filterWords,
     setFilterWords,
-    isCorrect,
     setIsCorrect,
-    isCorrectPoint,
     setIsCorrectPoint,
     matchWords,
     setMatchWords,
-    inCorrectWord,
     setInCorrectWord,
   } = useGlobalContext();
 
-  // const [words, setWords] = useState("");
-  // const [newValue, setNewValue] = useState("");
-  // const [filterWords, setFilterWords] = useState("");
-  // const [isCorrect, setIsCorrect] = useState(false);
-  // const [isCorrectPoint, setIsCorrectPoint] = useState(null);
-  // const [matchWords, setMatchWords] = useState([]);
-
-  // const [inCorrectWord, setInCorrectWord] = useState(0);
   let lettersShuffle = dictionary.letters;
   const ref = useRef();
   const handleClick = (e) => {
@@ -113,25 +95,25 @@ export default function Game({ language, dictionary }) {
     <div className="mx-auto max-w-8xl h-[100%] my-6">
       <div className="flex max-w-xl mx-auto items-center justify-between  p-4">
         <Timer />
-        <WordsTable />
-        <Point />
+        <WordsTable language={language} />
+        <Point language={language} />
       </div>
 
-    <LettersHive letters={lettersShuffle}/>
+      <LettersHive letters={lettersShuffle} language={language} />
 
       <div className="mt-6 flex flex-col items-center justify-center">
-       <FormArea handleSubmit={handleShowText}/>
+        <FormArea handleSubmit={handleShowText} language={language} />
 
         {timer === 0 && (
           <div className="mt-4 flex items-center justify-center">
             {" "}
-            <RestartBtn />
+            <RestartBtn language={language} />
           </div>
         )}
       </div>
       <button onClick={() => setShow(true)}>Show Modak</button>
 
-      <ResultModal dictionary={dictionary} />
+      <ResultModal dictionary={dictionary} language={language}  />
 
       <ToastContainer
         autoClose={1400}

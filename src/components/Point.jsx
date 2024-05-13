@@ -1,12 +1,14 @@
 "use client";
 
 import { useGlobalContext } from "@/context/Context";
-const Point = () => {
-  const {point, isCorrectPoint, filterWords} = useGlobalContext();
+const Point = ({ language }) => {
+  const { point, isCorrectPoint, filterWords } = useGlobalContext();
 
   return (
     <div className="bg-sky-600 rounded-md px-4 py-2 text-white font-bold relative text-center">
-      <span className="text-sm"> Score : {point}</span>
+      <span className="text-sm">
+        {language === "turkish" ? "Puan" : "Score"}: {point}
+      </span>
 
       <>
         {isCorrectPoint === true && (

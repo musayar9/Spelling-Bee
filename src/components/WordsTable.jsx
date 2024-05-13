@@ -3,7 +3,7 @@
 import { useGlobalContext } from "@/context/Context";
 import { FaCheck } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
-const WordsTable = () => {
+const WordsTable = ({ language }) => {
   const { matchWords, isCorrectPoint, point } = useGlobalContext();
 
   return (
@@ -16,7 +16,7 @@ const WordsTable = () => {
             className="btn "
             onClick={() => document.getElementById("my_modal_4").showModal()}
           >
-            Show Words
+            {language === "turkish" ? "Kelimelerin" : "Show Words"}
           </button>
           {isCorrectPoint === true && (
             <p className="absolute -right-3 -top-3">
@@ -34,7 +34,7 @@ const WordsTable = () => {
               <span className="relative flex h-8 w-8">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                 <span className="relative inline-flex items-center justify-center rounded-full h-8 w-8 p-2 text-[10px] bg-rose-600 text-white font-bold">
-                <IoMdClose/>
+                  <IoMdClose />
                 </span>
               </span>
             </p>
@@ -43,19 +43,20 @@ const WordsTable = () => {
       )}
       <dialog id="my_modal_4" className="modal">
         <div className="modal-box w-11/12 max-w-2xl">
-          <h3 className="font-bold text-lg text-center my-4">Words Found!</h3>
+          <h3 className="font-bold text-lg text-center my-4">
+            {" "}
+            {language === "turkish" ? "Bulunan Kelimeler" : "Show Words"}{" "}
+          </h3>
           <div className="overflow-x-auto h-64">
             <table className="table p-2 ">
-              {/* head */}
               <thead>
                 <tr>
-                  <th>Order</th>
-                  <th>Word</th>
-                  <th>Point</th>
+                  <th> {language === "turkish" ? "Sıra" : "Order"} </th>
+                  <th> {language === "turkish" ? "Kelime" : "Word"}</th>
+                  <th> {language === "turkish" ? "Puan" : "Point"} </th>
                 </tr>
               </thead>
               <tbody>
-                {/* row 1 */}
                 {matchWords.map((word, index) => (
                   <tr key={index}>
                     <th>{index + 1}</th>
@@ -63,13 +64,20 @@ const WordsTable = () => {
                     <td>+{word.length}</td>
                   </tr>
                 ))}
-
-                {/* row 2 */}
               </tbody>
               <tfoot>
                 <tr className="">
-                  <th>Sum Words:{matchWords.length} </th>
-                  <th>Total Score</th>
+                  <th>
+                    {" "}
+                    {language === "turkish" ? "Toplam Kelime" : "Total Words"}:
+                    {matchWords.length}{" "}
+                  </th>
+                  <th>
+                    {" "}
+                    {language === "turkish"
+                      ? "Toplam Puan"
+                      : "Total Point"}{" "}
+                  </th>
 
                   <th>{point}</th>
                 </tr>
@@ -78,7 +86,10 @@ const WordsTable = () => {
           </div>
           <div className="modal-action">
             <form method="dialog">
-              <button className="btn">Close</button>
+              <button className="btn">
+                {" "}
+                {language === "turkish" ? "Kapat" : "Close"}{" "}
+              </button>
             </form>
           </div>
         </div>

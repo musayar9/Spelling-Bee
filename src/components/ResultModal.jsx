@@ -2,7 +2,7 @@
 import { useGlobalContext } from "@/context/Context";
 import { MdClose } from "react-icons/md";
 import RestartBtn from "./RestartBtn";
-const ResultModal = ({ dictionary }) => {
+const ResultModal = ({ dictionary, language }) => {
   const { show, setShow, matchWords, inCorrectWord, point } =
     useGlobalContext();
 
@@ -15,7 +15,9 @@ const ResultModal = ({ dictionary }) => {
               {/* Modal content */}
               <div className="relative     ">
                 <div className="flex items-center ">
-                  <p className="text-2xl mx-auto  pl-4">Your Score</p>
+                  <p className="text-2xl mx-auto  pl-4">
+                    {language === "turkish" ? "Puanınız" : "Your Score"}
+                  </p>
                   <button
                     onClick={() => setShow(false)}
                     type="button"
@@ -28,7 +30,12 @@ const ResultModal = ({ dictionary }) => {
                 <div className="mt-4 ">
                   <ul className="space-y-2">
                     <li className="flex items-center justify-between border-b border-slate-300 p-3 text-sm">
-                      <span className="">Correct Word Count</span>
+                      <span className="">
+                        {" "}
+                        {language === "turkish"
+                          ? "Doğru Kelime Sayısı"
+                          : "Correct Word Count"}
+                      </span>
                       <span>
                         <span className="text-emerald-600 pr-1">
                           {" "}
@@ -39,7 +46,11 @@ const ResultModal = ({ dictionary }) => {
                     </li>
 
                     <li className="flex items-center justify-between border-b border-slate-300 p-3 text-sm">
-                      <span className="">InCorrect Word Count</span>
+                      <span className="">
+                        {language === "turkish"
+                          ? "Yanlış Kelime Sayısı"
+                          : "InCorrect Word Count"}
+                      </span>
                       <span>
                         <span className="text-red-600 pr-1">
                           {" "}
@@ -49,18 +60,28 @@ const ResultModal = ({ dictionary }) => {
                       </span>
                     </li>
                     <li className="flex items-center justify-between border-b border-slate-300 p-3 text-sm">
-                      <span className="">Earned Second</span>
+                      <span className="">
+                        {language === "turkish"
+                          ? "Kazanılan Saniye"
+                          : " Earned Second"}
+                      </span>
                       <span>{matchWords.length * 15} sec.</span>
                     </li>
                     <li className="flex items-center justify-between border-b border-slate-300 p-3 text-sm">
-                      <span className="">Loser Second</span>
+                      <span className="">
+                        {" "}
+                        {language === "turkish"
+                          ? "Kaybedilen Saniye"
+                          : " Loser Second"}
+                      </span>
                       <span>{inCorrectWord * 2} sec.</span>
                     </li>
                   </ul>
                   <div className="flex items-center justify-center space-x-4 mt-5 text-sm">
                     <p className="text-2xl font-semibold">
-                      Total Point ={" "}
-                      <span className="font-bold text-3xl text-amber-500">
+          
+                      {language === "turkish" ? "Toplam Puan" : " Total Point"} = 
+                      <span className="font-bold pl-2 text-4xl text-amber-500">
                         {point}
                       </span>
                     </p>

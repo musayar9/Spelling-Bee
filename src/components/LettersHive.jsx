@@ -1,6 +1,6 @@
 import { useGlobalContext } from "@/context/Context";
 
-const LettersHive = ({ letters }) => {
+const LettersHive = ({ letters, language }) => {
   const { words } = useGlobalContext();
 
   return (
@@ -8,7 +8,7 @@ const LettersHive = ({ letters }) => {
       <input
         className="text-center border-b border-slate-300  w-72 p-4 outline-none"
         value={words}
-        placeholder="Your Words"
+        placeholder={language ==="turkish" ?"Kelimen" :"Your Word's"}
         readOnly
       />
 
