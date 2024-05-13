@@ -5,13 +5,14 @@ import { formattedTime } from "./Funtcions";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { MdClose } from "react-icons/md";
 import RestartBtn from "./RestartBtn";
 import Timer from "./Timer";
 import WordsTable from "./WordsTable";
 import Point from "./Point";
+import ResultModal from "./ResultModal";
+import FormArea from "./FormArea"
+import LettersHive from "./LettersHive";
 export default function Game({ language, dictionary }) {
-
   const {
     point,
     setPoint,
@@ -108,70 +109,18 @@ export default function Game({ language, dictionary }) {
     return () => clearTimeout(timeout);
   }
 
-
-
   return (
-    <div className="mx-auto max-w-8xl my-6">
+    <div className="mx-auto max-w-8xl h-[100%] my-6">
       <div className="flex max-w-xl mx-auto items-center justify-between  p-4">
         <Timer />
         <WordsTable />
-
         <Point />
       </div>
 
-      <div className="flex items-center flex-col justify-center">
-        <input
-          className="text-center border-b border-slate-300  w-72 p-4 outline-none"
-          value={words}
-          placeholder="Your Words"
-          readOnly
-        />
-
-        <div className=" mt-12 gap-2">
-          <ul id="hexGrid">
-            {lettersShuffle.map((letter, index) => (
-              <li
-                key={index}
-                className="hex"
-
-                // onClick={handleClick} ref={ref}
-              >
-                <div className="hexIn">
-                  <a className="hexLink">
-                    <p>{letter}</p>
-                  </a>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+    <LettersHive letters={lettersShuffle}/>
 
       <div className="mt-6 flex flex-col items-center justify-center">
-        <form onSubmit={handleShowText}>
-          <input
-            type="text"
-            className="border border-slate-300  p-2  rounded-s-lg text-center outline-yellow-400 "
-            value={words}
-            disabled={isInput}
-            placeholder="Enter Words"
-            onChange={(e) => {
-              setWords(e.target.value);
-
-              if (e.target.value) {
-                setIsLetter(true);
-              }
-            }}
-          />
-
-          <button
-            type="submit"
-            disabled={isInput}
-            className="rounded-e-lg  bg-amber-400 p-2 text-gray-900 font-bold hover:bg-amber-500 duration-150 ease-in-out"
-          >
-            Check
-          </button>
-        </form>
+       <FormArea handleSubmit={handleShowText}/>
 
         {timer === 0 && (
           <div className="mt-4 flex items-center justify-center">
@@ -182,74 +131,7 @@ export default function Game({ language, dictionary }) {
       </div>
       <button onClick={() => setShow(true)}>Show Modak</button>
 
-      {/* Show Results=  */}
-      {show && (
-        <>
-          <div className=" fixed  z-50 inset-0 bg-black bg-opacity-75 flex justify-center items-center w-full  ">
-            <div className=" absolute top-20 p-8 w-full max-w-xl max-h-full bg-white rounded-lg">
-              {/* Modal content */}
-              <div className="relative     ">
-                <div className="flex items-center ">
-                  <p className="text-2xl mx-auto  pl-4">Your Score</p>
-                  <button
-                    onClick={() => setShow(false)}
-                    type="button"
-                    className="absolute -top-2  right-1  hover:text-red-800 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center "
-                  >
-                    <MdClose size={28} />
-                  </button>
-                </div>
-
-                <div className="mt-4 ">
-                  <ul className="space-y-2">
-                    <li className="flex items-center justify-between border-b border-slate-300 p-3 text-sm">
-                      <span className="">Correct Word Count</span>
-                      <span>
-                        <span className="text-emerald-600 pr-1">
-                          {" "}
-                          {matchWords && matchWords.length}
-                        </span>
-                        || ({dictionary.possible_words.length})
-                      </span>
-                    </li>
-
-                    <li className="flex items-center justify-between border-b border-slate-300 p-3 text-sm">
-                      <span className="">InCorrect Word Count</span>
-                      <span>
-                        <span className="text-red-600 pr-1">
-                          {" "}
-                          {inCorrectWord}
-                        </span>
-                        || ({dictionary.possible_words.length})
-                      </span>
-                    </li>
-                    <li className="flex items-center justify-between border-b border-slate-300 p-3 text-sm">
-                      <span className="">Earned Second</span>
-                      <span>{matchWords.length * 15} sec.</span>
-                    </li>
-                    <li className="flex items-center justify-between border-b border-slate-300 p-3 text-sm">
-                      <span className="">Loser Second</span>
-                      <span>{inCorrectWord * 2} sec.</span>
-                    </li>
-                  </ul>
-                  <div className="flex items-center justify-center space-x-4 mt-5 text-sm">
-                    <p className="text-2xl font-semibold">
-                      Total Point = <span className="font-bold text-3xl text-amber-500">
-                      {point}
-                    </span>
-                    </p>
-               
-                  </div>
-                </div>
-                <div className="mt-4 flex items-center justify-end">
-                  {" "}
-                  <RestartBtn />
-                </div>
-              </div>
-            </div>
-          </div>
-        </>
-      )}
+      <ResultModal dictionary={dictionary} />
 
       <ToastContainer
         autoClose={1400}

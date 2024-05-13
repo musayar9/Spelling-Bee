@@ -48,7 +48,7 @@ const GameProvider = ({ children }) => {
     setTimer(60);
     setIsLetter(false);
     setWords("");
-    
+     setIsInput(false);
   };
 
   return (

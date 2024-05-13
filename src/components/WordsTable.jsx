@@ -1,9 +1,10 @@
 "use client";
 
 import { useGlobalContext } from "@/context/Context";
-
+import { FaCheck } from "react-icons/fa";
+import { IoMdClose } from "react-icons/io";
 const WordsTable = () => {
-  const { matchWords, isCorrect, point } = useGlobalContext();
+  const { matchWords, isCorrectPoint, point } = useGlobalContext();
 
   return (
     <>
@@ -17,12 +18,23 @@ const WordsTable = () => {
           >
             Show Words
           </button>
-          {isCorrect && (
+          {isCorrectPoint === true && (
             <p className="absolute -right-3 -top-3">
               <span className="relative flex h-8 w-8">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
                 <span className="relative inline-flex items-center justify-center rounded-full h-8 w-8 p-2 text-[10px] bg-yellow-500 text-white font-bold">
-                  +1
+                  <FaCheck />
+                </span>
+              </span>
+            </p>
+          )}
+
+          {isCorrectPoint === false && (
+            <p className="absolute -right-3 -top-3">
+              <span className="relative flex h-8 w-8">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                <span className="relative inline-flex items-center justify-center rounded-full h-8 w-8 p-2 text-[10px] bg-rose-600 text-white font-bold">
+                <IoMdClose/>
                 </span>
               </span>
             </p>
