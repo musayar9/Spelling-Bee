@@ -12,9 +12,6 @@ const Error = () => {
           <h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-5xl">
             Something went wrong
           </h1>
-          <p className="mt-6 text-lg leading-7">
-            Check yours Data
-          </p>
           <div className="mt-10">
             <Link
               href="/"

@@ -22,7 +22,7 @@
   grid-column-end: span 2;
   position: relative;
   visibility: hidden;
-  background-color: yellow; /* solid kaldırıldı */
+  background-color: yellow; 
   outline: 1px solid transparent; /* fix for jagged edges in FF on hover transition */
 }
 
@@ -49,30 +49,23 @@
 }
 
 .hexLink {
-  display: block;
+  /* display: block;
   width: 100%;
   height: 100%;
-  text-align: center;
-  background-color: rgba(
+  text-align: center; */
+  /* background-color: rgba(
     255,
     211,
     0,
     0.82
-  ); /* #ffd300d1 rgba() ile değiştirildi */
-  overflow: hidden;
+  );  */
+  /* overflow: hidden; */
   transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg); /* -webkit-transform, -ms-transform kaldırıldı */
 }
 
-#center-letter {
-  background-color: rgba(
-    183,
-    175,
-    175,
-    0.9
-  ); /* #b7afafe6 rgba() ile değiştirildi */
-}
 
-.hex p {
+
+/* .hex p {
   width: 100%;
   padding: 38%;
   box-sizing: border-box;
@@ -81,7 +74,7 @@
   font-size: 1.4em;
   color: #000;
 
-}
+} */
 
 .hexLink:hover p,
 .hexLink:focus p {

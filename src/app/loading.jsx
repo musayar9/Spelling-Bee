@@ -9,7 +9,7 @@ const Loading = () => {
         width="100"
         ariaLabel="color-ring-loading"
         wrapperClass="color-ring-wrapper"
-        colors={["#34d399", "#10b981", "#059669", "#047857", "#065f46"]}
+        colors={["#fbbf24", "#f59e0b", "#d97706", "#b45309", "#92400e"]}
       />
     </div>
   );

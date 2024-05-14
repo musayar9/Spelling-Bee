@@ -8,7 +8,7 @@ const LettersHive = ({ letters, language }) => {
       <input
         className="text-center border-b border-slate-300  w-72 p-4 outline-none"
         value={words}
-        placeholder={language ==="turkish" ?"Kelimen" :"Your Word's"}
+        placeholder={language === "turkish" ? "Kelimen" : "Your Word's"}
         readOnly
       />
 
@@ -22,8 +22,11 @@ const LettersHive = ({ letters, language }) => {
               // onClick={handleClick} ref={ref}
             >
               <div className="hexIn">
-                <a className="hexLink">
-                  <p>{letter}</p>
+                <a className="block w-[100%] h-[100%] text-center overflow-hidden hexLink border-amber-400
+                bg-yellow-500   font-bold
+             0  bg-gradient-to-r from-amber-300 via-yellow-400 to-yellow-400
+               ">
+                  <p className="w-[100%] p-[38%] box-border bg-transparent font-[800] text-[1.4em] text-black">{letter}</p>
                 </a>
               </div>
             </li>

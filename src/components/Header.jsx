@@ -1,10 +1,9 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+
 
 const Header = () => {
-const pathname = usePathname();
-console.log(pathname);
+
   return (
     <div className="max-w-3xl mx-auto my-24">
       <div className="flex flex-col items-center justify-center ">
@@ -23,7 +22,9 @@ console.log(pathname);
         <div className="flex gap-4 mt-4">
           <Link
             href="/turkish"
-            className="text-lg bg-amber-500 text-white px-6 py-2.5 rounded-full shadow-lg shadow-amber-500/50  bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-amber-300"
+            className="text-lg bg-amber-500 text-white px-6 py-2.5 rounded-full 
+            shadow-lg shadow-amber-500/50  bg-gradient-to-r from-amber-400 via-amber-500
+            to-amber-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-amber-300"
           >
             Turkish
           </Link>
