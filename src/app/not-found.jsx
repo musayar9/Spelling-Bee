@@ -12,7 +12,7 @@ const NotFound = () => {
             Page Not Found
           </h1>
           <p className="mt-6 text-lg leading-7">
-            Sorry we couldn't find the page you're looking for
+            Sorry we could not find the page you are looking for
           </p>
           <div className="mt-10">
             <Link href="/" className="btn btn-secondary text-white rounded-full tracking-widest">

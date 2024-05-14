@@ -13,7 +13,7 @@ const Error = () => {
             Something went wrong
           </h1>
           <p className="mt-6 text-lg leading-7">
-            Check your's Data
+            Check yours Data
           </p>
           <div className="mt-10">
             <Link
