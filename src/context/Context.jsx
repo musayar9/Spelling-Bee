@@ -14,7 +14,7 @@ const GameProvider = ({ children }) => {
   const [timer, setTimer] = useState(60);
   const [isLetter, setIsLetter] = useState(false);
   const [isInput, setIsInput] = useState(false);
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
 
   const [words, setWords] = useState("");
   const [know, setKnow] = useState(false);
@@ -26,7 +26,6 @@ const GameProvider = ({ children }) => {
   const [inCorrectWord, setInCorrectWord] = useState(0);
 
   const pathname = usePathname();
-
 
   useEffect(() => {
     if (pathname === "/") {
