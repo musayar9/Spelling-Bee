@@ -124,7 +124,7 @@ export default function Game({ language, dictionary }) {
           </div>
         )}
       </div>
-      <button onClick={() => setShow(true)}>Show Modal</button>
+   
       <ResultModal dictionary={dictionary} language={language} />
 
       <ToastContainer
