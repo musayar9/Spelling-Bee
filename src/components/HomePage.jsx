@@ -2,7 +2,7 @@
 import Link from "next/link";
 
 
-const Header = () => {
+const HomePage = () => {
 
   return (
     <div className="max-w-3xl mx-auto my-24">
@@ -40,4 +40,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HomePage;

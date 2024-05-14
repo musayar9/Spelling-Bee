@@ -109,7 +109,7 @@ export default function Game({ language, dictionary }) {
 
   return (
     <div className="mx-auto max-w-8xl h-[100%] my-6">
-    <Breadcrumbs/>
+    <Breadcrumbs language={language}/>
     
       <div className="flex max-w-xl mx-auto items-center justify-between  p-4">
         <Timer />
