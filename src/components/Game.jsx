@@ -11,6 +11,8 @@ import Point from "./Point";
 import ResultModal from "./ResultModal";
 import FormArea from "./FormArea";
 import LettersHive from "./LettersHive";
+import Breadcrumbs from "./Breadcrumbs"
+
 export default function Game({ language, dictionary }) {
   const {
     setPoint,
@@ -29,6 +31,9 @@ export default function Game({ language, dictionary }) {
     setKnow,
   } = useGlobalContext();
 
+
+
+// console.log(pathname)
   let lettersShuffle = dictionary.letters;
   const ref = useRef();
   const handleClick = (e) => {
@@ -104,6 +109,8 @@ export default function Game({ language, dictionary }) {
 
   return (
     <div className="mx-auto max-w-8xl h-[100%] my-6">
+    <Breadcrumbs/>
+    
       <div className="flex max-w-xl mx-auto items-center justify-between  p-4">
         <Timer />
         <WordsTable language={language} />

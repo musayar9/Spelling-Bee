@@ -15,6 +15,8 @@ export default function RootLayout({ children }) {
       <body className={lobster.className}>
         <GameProvider>
           <Navbar />
+          
+          
           {children}
         </GameProvider>
       </body>

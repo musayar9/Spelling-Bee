@@ -1,6 +1,10 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
+const pathname = usePathname();
+console.log(pathname);
   return (
     <div className="max-w-3xl mx-auto my-24">
       <div className="flex flex-col items-center justify-center ">

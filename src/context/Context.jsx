@@ -3,6 +3,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import english from "../../public/dictionaries/english.js";
 import turkish from "../../public/dictionaries/turkish.js";
+import { usePathname } from "next/navigation";
 const GameContext = createContext();
 
 const GameProvider = ({ children }) => {
@@ -23,13 +24,27 @@ const GameProvider = ({ children }) => {
   const [matchWords, setMatchWords] = useState([]);
   const [restartBtn, setRestartBtn] = useState(false);
   const [inCorrectWord, setInCorrectWord] = useState(0);
+
+  const pathname = usePathname();
+
+
   useEffect(() => {
+    if (pathname === "/") {
+      setShow(false);
+      setMatchWords([]);
+      setInCorrectWord(0);
+      setPoint(0);
+      setTimer(60);
+      setIsLetter(false);
+      setWords("");
+      setIsInput(false);
+    }
+
     if (isLetter && timer > 0) {
       const interval = setInterval(() => {
         setTimer((prev) => prev - 1);
       }, 1000);
 
-    
       return () => clearInterval(interval);
     } else if (timer === 0) {
       setIsInput(true);
@@ -37,7 +52,7 @@ const GameProvider = ({ children }) => {
       setRestartBtn(true);
       setIsLetter(false);
     }
-  }, [isLetter, timer, setTimer]);
+  }, [isLetter, timer, setTimer, pathname]);
 
   const handleRestart = () => {
     setShow(false);
