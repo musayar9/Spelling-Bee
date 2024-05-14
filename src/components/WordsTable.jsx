@@ -14,7 +14,8 @@ const WordsTable = ({ language }) => {
       {matchWords.length > 0 && (
         <div className="relative">
           <button
-            className="btn rounded-full  md:px-6 md:py-2 "
+            className=" text-sm bg-slate-200 rounded-full  md:px-6 md:py-2 shadow-lg shadow-slate-500/50  bg-gradient-to-r from-slate-200 via-slate-300
+            to-slate-400 hover:bg-gradient-to-br focus:ring-1 focus:outline-none focus:ring-slate-300 "
             onClick={() => document.getElementById("my_modal_4").showModal()}
           >
             <span className="hidden md:flex">

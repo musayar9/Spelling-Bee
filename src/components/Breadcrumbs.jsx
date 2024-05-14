@@ -5,7 +5,7 @@ const Breadcrumbs = () => {
   const pathname = usePathname();
 
   return (
-    <div className="text-sm breadcrumbs max-w-xl mx-auto flex items-center justify-center">
+    <div className="text-sm breadcrumbs max-w-xl mx-auto flex items-center justify-center drop-shadow-md">
       <ul>
         <li className="text-2xl ">
           <Link href="/">Home</Link>
