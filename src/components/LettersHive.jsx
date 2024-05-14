@@ -22,11 +22,15 @@ const LettersHive = ({ letters, language }) => {
               // onClick={handleClick} ref={ref}
             >
               <div className="hexIn">
-                <a className="block w-[100%] h-[100%] text-center overflow-hidden hexLink border-amber-400
-                bg-yellow-500   font-bold
+                <a
+                  className="block w-[100%] h-[100%] text-center overflow-hidden hexLink border-amber-400
+                bg-[rgba(255,177,3,0.76)]   font-bold
                 shadow shadow-yellow-600/50  bg-gradient-to-r from-amber-300 via-yellow-400 to-yellow-400
-               ">
-                  <p className="w-[100%] p-[38%] box-border bg-transparent font-[800] text-[1.4em] text-black">{letter}</p>
+               "
+                >
+                  <p className="w-[100%] p-[38%] box-border bg-transparent font-[800] text-[1.4em] text-black">
+                    {letter}
+                  </p>
                 </a>
               </div>
             </li>
