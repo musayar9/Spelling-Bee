@@ -13,7 +13,7 @@ const FormArea = ({ handleSubmit, language }) => {
           disabled={isInput}
           placeholder={language === "turkish" ? "Kelime Girin" : "Enter Words"}
           onChange={(e) => {
-            setWords(e.target.value);
+            setWords(e.target.value.toLowerCase());
 
             if (e.target.value) {
               setIsLetter(true);
