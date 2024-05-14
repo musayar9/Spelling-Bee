@@ -4,8 +4,8 @@ const Timer = () => {
   const { timer, isCorrect } = useGlobalContext();
 
   return (
-    <div className="text-md w-28 bg-emerald-200 text-white px-4 py-2 text-center rounded-full shadow-lg shadow-emerald-500/50  bg-gradient-to-r from-emerald-300 via-emerald-500 to-emerald-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-emerald-300 relative">
-      <span className="">{formattedTime(timer)}</span>{" "}
+    <div className=" w-24 md:w-28 bg-emerald-200 text-white px-4 py-1 md:py-2 text-center rounded-full shadow-lg shadow-emerald-500/50  bg-gradient-to-r from-emerald-300 via-emerald-500 to-emerald-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-emerald-300 relative">
+      <span className="text-sm md:text-md">{formattedTime(timer)}</span>{" "}
       {isCorrect && (
         <>
           <p className="absolute -right-3 -top-3">

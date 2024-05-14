@@ -6,10 +6,10 @@ const Point = ({ language }) => {
 
   return (
     <div
-      className="bg-sky-200 rounded-full px-6 py-2 text-white font-bold relative text-center    shadow-lg shadow-sky-500/50  bg-gradient-to-r from-sky-300 via-sky-500
+      className="bg-sky-200 rounded-full px-4 py-1 md:px-6 md:py-2 text-white font-bold relative text-center    shadow-lg shadow-sky-500/50  bg-gradient-to-r from-sky-300 via-sky-500
             to-sky-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-sky-300"
     >
-      <span className="text-md space-x-2 font-light tracking-wider">
+      <span className="text-sm md:text-md space-x-2 font-light tracking-wide">
         {language === "turkish" ? "Puan" : "Score"} : {point}
       </span>
 

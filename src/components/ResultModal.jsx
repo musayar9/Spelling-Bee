@@ -10,7 +10,7 @@ const ResultModal = ({ dictionary, language }) => {
     <>
       {show && (
         <>
-          <div className=" fixed  z-50 inset-0 bg-black bg-opacity-75 flex justify-center items-center w-full  ">
+          <div className=" fixed  z-50 inset-0 bg-black bg-opacity-75 flex justify-center items-center w-full p-4 ">
             <div className=" absolute p-8 w-full max-w-xl max-h-full bg-white rounded-lg">
               {/* Modal content */}
               <div className="relative     ">
@@ -18,8 +18,9 @@ const ResultModal = ({ dictionary, language }) => {
                   {know ? (
                     <div className="">
                       <h2 className="text-center text-5xl text-amber-500  ">
-                        {language === "turkish" ? "Tebrikler" : "Congratulations"}{" "}
-                   
+                        {language === "turkish"
+                          ? "Tebrikler"
+                          : "Congratulations"}{" "}
                       </h2>
                       <p className="text-md text-center tracking-widest">
                         {language === "turkish"
@@ -91,11 +92,11 @@ const ResultModal = ({ dictionary, language }) => {
                       <span>{inCorrectWord * 2} sec.</span>
                     </li>
                   </ul>
-                  <div className="flex items-center justify-center space-x-4 mt-5 text-sm">
-                    <p className="text-2xl font-semibold">
+                  <div className="flex items-center justify-center space-x-4 mt-5 ">
+                    <p className="text-xl md:text-2xl font-semibold">
                       {language === "turkish" ? "Toplam Puan" : " Total Point"}{" "}
                       =
-                      <span className="font-bold pl-2 text-4xl text-amber-500">
+                      <span className="font-bold pl-2 text-2xl md:text-4xl text-amber-500">
                         {point}
                       </span>
                     </p>

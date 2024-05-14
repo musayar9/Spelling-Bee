@@ -14,7 +14,7 @@ const GameProvider = ({ children }) => {
   const [timer, setTimer] = useState(60);
   const [isLetter, setIsLetter] = useState(false);
   const [isInput, setIsInput] = useState(false);
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
 
   const [words, setWords] = useState("");
   const [know, setKnow] = useState(false);
