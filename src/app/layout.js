@@ -12,10 +12,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-    
       <body className={lobster.className}>
-        <Navbar />
-        <GameProvider>{children}</GameProvider>
+        <GameProvider>
+          <Navbar />
+          {children}
+        </GameProvider>
       </body>
     </html>
   );

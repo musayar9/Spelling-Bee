@@ -3,7 +3,7 @@ import { useGlobalContext } from "@/context/Context";
 import { MdClose } from "react-icons/md";
 import RestartBtn from "./RestartBtn";
 const ResultModal = ({ dictionary, language }) => {
-  const { show, setShow, matchWords, inCorrectWord, point } =
+  const { show, setShow, matchWords, inCorrectWord, point, know } =
     useGlobalContext();
 
   return (
@@ -14,10 +14,24 @@ const ResultModal = ({ dictionary, language }) => {
             <div className=" absolute p-8 w-full max-w-xl max-h-full bg-white rounded-lg">
               {/* Modal content */}
               <div className="relative     ">
-                <div className="flex items-center ">
-                  <p className="text-2xl mx-auto  pl-4 ">
-                    {language === "turkish" ? "Puanınız" : "Your Score"}
-                  </p>
+                <div className="flex items-center justify-center ">
+                  {know ? (
+                    <div className="">
+                      <h2 className="text-center text-5xl text-amber-500  ">
+                        {language === "turkish" ? "Tebrikler" : "Congratulations"}{" "}
+                   
+                      </h2>
+                      <p className="text-md text-center tracking-widest">
+                        {language === "turkish"
+                          ? "Bütün Kelimeleri Buldunuz"
+                          : "You found all the words"}
+                      </p>
+                    </div>
+                  ) : (
+                    <p className="text-2xl mx-auto  pl-4 ">
+                      {language === "turkish" ? "Puanınız" : "Your Score"}
+                    </p>
+                  )}
                   <button
                     onClick={() => setShow(false)}
                     type="button"
@@ -89,7 +103,7 @@ const ResultModal = ({ dictionary, language }) => {
                 </div>
                 <div className="mt-4 flex items-center justify-end">
                   {" "}
-                  <RestartBtn language={language}/>
+                  <RestartBtn language={language} />
                 </div>
               </div>
             </div>

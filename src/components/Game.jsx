@@ -1,6 +1,6 @@
 "use client";
 import { useGlobalContext } from "@/context/Context";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -25,6 +25,8 @@ export default function Game({ language, dictionary }) {
     matchWords,
     setMatchWords,
     setInCorrectWord,
+    setRestartBtn,
+    setKnow,
   } = useGlobalContext();
 
   let lettersShuffle = dictionary.letters;
@@ -35,6 +37,15 @@ export default function Game({ language, dictionary }) {
 
     setWords([...words, content]);
   };
+
+  useEffect(() => {
+    if (dictionary.possible_words.length === matchWords.length) {
+      setShow(true);
+      setRestartBtn(true);
+      setKnow(true);
+    }
+    return;
+  });
 
   function handleShowText(e) {
     e.preventDefault();
@@ -102,7 +113,9 @@ export default function Game({ language, dictionary }) {
       <LettersHive letters={lettersShuffle} language={language} />
 
       <div className="mt-6 flex flex-col items-center justify-center">
-        <FormArea handleSubmit={handleShowText} language={language} />
+        {timer === 0 || (
+          <FormArea handleSubmit={handleShowText} language={language} />
+        )}
 
         {timer === 0 && (
           <div className="mt-4 flex items-center justify-center">
@@ -111,9 +124,8 @@ export default function Game({ language, dictionary }) {
           </div>
         )}
       </div>
-      <button onClick={() => setShow(true)}>Show Modak</button>
-
-      <ResultModal dictionary={dictionary} language={language}  />
+      <button onClick={() => setShow(true)}>Show Modal</button>
+      <ResultModal dictionary={dictionary} language={language} />
 
       <ToastContainer
         autoClose={1400}

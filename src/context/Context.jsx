@@ -8,8 +8,7 @@ const GameContext = createContext();
 const GameProvider = ({ children }) => {
   let englishDictionary = english;
   let turkishDictionary = turkish;
-  //   console.log("english", englishDictionary);
-  //   console.log("turkish", turkishDictionary);
+
   const [point, setPoint] = useState(0);
   const [timer, setTimer] = useState(60);
   const [isLetter, setIsLetter] = useState(false);
@@ -17,7 +16,7 @@ const GameProvider = ({ children }) => {
   const [show, setShow] = useState(false);
 
   const [words, setWords] = useState("");
-  const [newValue, setNewValue] = useState("");
+  const [know, setKnow] = useState(false);
   const [filterWords, setFilterWords] = useState("");
   const [isCorrect, setIsCorrect] = useState(false);
   const [isCorrectPoint, setIsCorrectPoint] = useState(null);
@@ -30,13 +29,13 @@ const GameProvider = ({ children }) => {
         setTimer((prev) => prev - 1);
       }, 1000);
 
-      // Temizlik fonksiyonunu döndürerek, bileşenin unmount edildiğinde zamanlayıcıyı durdurur
+    
       return () => clearInterval(interval);
     } else if (timer === 0) {
       setIsInput(true);
       setShow(true);
       setRestartBtn(true);
-      setIsLetter(false)
+      setIsLetter(false);
     }
   }, [isLetter, timer, setTimer]);
 
@@ -48,7 +47,7 @@ const GameProvider = ({ children }) => {
     setTimer(60);
     setIsLetter(false);
     setWords("");
-     setIsInput(false);
+    setIsInput(false);
   };
 
   return (
@@ -78,6 +77,9 @@ const GameProvider = ({ children }) => {
         inCorrectWord,
         setInCorrectWord,
         handleRestart,
+        setRestartBtn,
+        know,
+        setKnow,
       }}
     >
       {children}

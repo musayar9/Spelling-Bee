@@ -3,6 +3,7 @@
 import { useGlobalContext } from "@/context/Context";
 import { FaCheck } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
+import { FaTableList } from "react-icons/fa6";
 const WordsTable = ({ language }) => {
   const { matchWords, isCorrectPoint, point } = useGlobalContext();
 
@@ -13,10 +14,13 @@ const WordsTable = ({ language }) => {
       {matchWords.length > 0 && (
         <div className="relative">
           <button
-            className="btn rounded-full px-6 py-2"
+            className="btn rounded-full  md:px-6 md:py-2 "
             onClick={() => document.getElementById("my_modal_4").showModal()}
           >
-            {language === "turkish" ? "Kelimelerin" : "Show Words"}
+            <span className="hidden md:flex">
+              {language === "turkish" ? "Kelimelerin" : "Show Words"}
+            </span>
+            <FaTableList className="md:hidden" />
           </button>
           {isCorrectPoint === true && (
             <p className="absolute -right-3 -top-3">
@@ -44,7 +48,6 @@ const WordsTable = ({ language }) => {
       <dialog id="my_modal_4" className="modal">
         <div className="modal-box w-11/12 max-w-2xl">
           <h3 className="font-bold text-lg text-center my-4">
-            {" "}
             {language === "turkish" ? "Bulunan Kelimeler" : "Show Words"}{" "}
           </h3>
           <div className="overflow-x-auto h-64">
