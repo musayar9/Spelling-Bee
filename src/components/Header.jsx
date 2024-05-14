@@ -7,7 +7,7 @@ const Header = () => {
         <h1 className="text-4xl text-center">
           Spelling <span className="text-yellow-400">Bee</span> Game
         </h1>
-        <p className="text-xl  text-slate-500 text-center my-8 tracking-widest">
+        <p className="text-xl  text-slate-500 text-center my-8 tracking-widest p-2">
           In this game you are given 7 letters. You are trying to find words
           that can be formed using these seven letters. You have one minute to
           find the words. For each word you find correctly, you will earn 15
