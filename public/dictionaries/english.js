@@ -44,6 +44,23 @@ const english = {
     "saltern",
     "entrals",
     "relants",
-  ],
+    "earn",
+    "tea",
+    "sea",
+    "rat",
+    "rate",
+    "near",
+    "ear",
+    "seen",
+    "sell",
+    "less",
+    "tall",
+    "sent",
+    "sales",
+    "sale",
+    "seal",
+    
+
+    ],
 };
 export default english;

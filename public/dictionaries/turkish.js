@@ -24,9 +24,20 @@ const turkish = {
     "takım",
     "nakarat",
     "kanat",
-    "kırnata",
+    "tanı",
+    "tan",
+    "anı",
+    "malak",
     "akıl",
+    "matara",
     "tanrı",
+    "tanık",
+    "rakım",
+    "akıntı",
+    "tarım",
+    "ramak"
+    
+    
   ],
 };
 export default turkish;
