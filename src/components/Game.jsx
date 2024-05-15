@@ -42,7 +42,7 @@ export default function Game({ language, dictionary }) {
   };
 
   useEffect(() => {
-    if (dictionary.possible_words.length === matchWords.length) {
+    if (dictionary.words.length === matchWords.length) {
       setShow(true);
       setRestartBtn(true);
       setKnow(true);
@@ -53,7 +53,7 @@ export default function Game({ language, dictionary }) {
   function handleShowText(e) {
     e.preventDefault();
     // let newData = words.join("");
-    const filter = dictionary.possible_words.find((word, index) => {
+    const filter = dictionary.words.find((word, index) => {
       //  console.log(word);
       return word === words;
     });

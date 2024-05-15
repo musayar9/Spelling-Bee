@@ -52,3 +52,33 @@ Kullanıcı doğru kelimeyi bulduğunda;
 
 - Bulunan her kelime `kelimelerin` adlı tablo içine eklenmektedir
   ![img-4](public/images/4.jpg)
+- Bulunan kelimeyi bir daha girdiğinizde bu kelimenin önceden bulduğuna dair bilgilendirm mesajı almaktasınız
+  ![img-6](public/images/6.jpg)
+
+## Yanlış Kelime
+
+Oyuncu yanlış kelime girdiğinde ve kelime bulunamadığında;
+
+- Kullanıcının puanın 2 puan silinmektedir.
+
+- Ekranın ortasında yanlış bildiğine dair bir bilgilendirme mesajı çıkmaktadır.
+
+- Kelime yok ise `Kelimen` tablosuna verinin eklenmediğine dair bilgi gösterilmektedir
+
+![img-5](public/images/5.jpg)
+
+## Sonuç
+
+1. Oyuncuta verilen süre sona erdiğinde;
+
+Oyunucunun girdiği doğru ve yanlış kelime sayısı, kazandığı ve kaybettiği toplam süre ve kazandığı toplam puan kullanıcıya gösterilmektedir.
+
+![img-7](public/images/7.jpg)
+
+2. Oyuncu verilen harfler ilgili tüm kelimeleri bulduğunda ise;
+
+Oyun durmakta ve oyunucuya bir modal açılmaktadır. Bu modal da oyuncuya bütün kelimeleri bulduğunda dair bilgi mesajı verilmek ve girdiği doğru ve yanlış kelime sayısı, kazandığı ve kaybettiği toplam süre ve kazandığı toplam puan gösterilmektedir.
+
+![img-8](public/images/8.jpg)
+
+Oyunuc süre bittiğinde veya bütün kelimeleri bulduğunda kendi gösterilen tekrar oyna butonuna tıkladığında bu veriler sıfırlanacak ve oyuna yeniden başlayabilecek.

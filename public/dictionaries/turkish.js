@@ -1,6 +1,6 @@
 const turkish = {
   letters: ["a", "ı", "k", "m", "r", "t", "n"],
-  possible_words: [
+  words: [
     "katır",
     "katman",
     "makarna",
@@ -26,8 +26,7 @@ const turkish = {
     "kanat",
     "kırnata",
     "akıl",
-    "tanrı"
-    
+    "tanrı",
   ],
 };
 export default turkish;

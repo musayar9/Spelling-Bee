@@ -56,7 +56,7 @@ const ResultModal = ({ dictionary, language }) => {
                           {" "}
                           {matchWords && matchWords.length}
                         </span>
-                        || ({dictionary.possible_words.length})
+                        || ({dictionary.words.length})
                       </span>
                     </li>
 
@@ -71,7 +71,7 @@ const ResultModal = ({ dictionary, language }) => {
                           {" "}
                           {inCorrectWord}
                         </span>
-                        || ({dictionary.possible_words.length})
+                        || ({dictionary.words.length})
                       </span>
                     </li>
                     <li className="flex items-center justify-between border-b border-slate-300 p-3 text-sm">
