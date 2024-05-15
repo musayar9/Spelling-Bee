@@ -13,7 +13,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+          rel="stylesheet"
+        ></link>
+      </head>
       <body className={lobster.className}>
         <GameProvider>
           <Navbar />

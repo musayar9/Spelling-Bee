@@ -4,6 +4,13 @@
 
 
 
+.Toastify__toast-body {
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+
+}
+
+
 #hexGrid {
   display: grid;
   grid-gap: 6px;

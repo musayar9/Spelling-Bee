@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Teknolojiler
 
-## Getting Started
+![NexttJs](https://img.shields.io/badge/NextJs-14.2.3-yellowgreen)
+![React](https://img.shields.io/badge/React-^18-green)
+![React-Icons](https://img.shields.io/badge/react--icons-5.2.1-yellow)
+![React-Loader-Spinner](https://img.shields.io/badge/react--loader--spinner-6.1.6-blue)
+![React-Toastify](https://img.shields.io/badge/react--toastify-10.0.5-red)
+![tailwindcss](https://img.shields.io/badge/tailwindcss-3.4.1-lightgreen)
+![daisyui](https://img.shields.io/badge/daisyui-4.11.1-pink)
 
-First, run the development server:
+## İçerik
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Bu projede NextJs ve Tailwindcss kullanılarak bir `Spelling Bee Game`. oyunu geliştirildi
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Proje içinde durum (state) yönetimi için useContext yapısı kullanıldı. Burada oluşturulan değişkenler diğer bileşenlere (components) dağıtıldı.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Bu oyunda oyuncuya 7 harf veriliyor. Bu yedi harf kullanılarak oluşturulabilecek kelimeleri bulmaya çalışıyorsunuz. Kelimeleri bulmak için bir dakikanız var. Doğru bulduğunuz her kelime için 15 saniye ve kelimenin uzunluğu kadar puan kazanacaksınız.Her doğru yanıttan sonra verilen harflerin yeri değişmektedir. Her yanlış kelime için 2 puan kaybedeceksiniz.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+![img-1](public/images/1.jpg)
 
-## Learn More
+Oyun ilk yüklendiğinde, ana sayfada oyuncuya oyun hakkında bilgilendirme yapılır. Oyuncuya oyunu oynamak için Türkçe ve İngilizce versiyonları seçme imkanı sunulur. Oyuncu hangi versiyonu seçerse, oyunu o dilde oynayacak ve kelimeleri o dil yapısına uygun olarak bulmaya çalışacaktır.
 
-To learn more about Next.js, take a look at the following resources:
+## Türkçe version
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![img-2](public/images/2.jpg)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Yukarıdaki resimde oyunun türkçe versionunu görüyorsunuz.
 
-## Deploy on Vercel
+Sayfada;
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Yeşil okla gösterilen alan, oyun için kullanıcıya verilen süreyi gösteriyor.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Mavi okla gösterilen alan, oyuncunun kazandığı puanı gösteriyor.
+
+- Sarı okla gösterilen alan, oyuncunun kelime gireceği yerdir.
+
+- Gri okla gösterilen alanda, kullanıcının girdiği kelimenin çıktısı gösterilecek.
+
+- Sarı okla gösterilen alan ise kullanıcıya sunulan 7 harfli olduğu alanı gösteriyor.
+
+## Doğru Kelime
+
+![img-3](public/images/3.jpg)
+
+Kullanıcı doğru kelimeyi bulduğunda;
+
+- Ekranın ortasında doğru bildiğine dair bir bilgilendirme mesajı çıkmaktadır.
+
+- Doğru kelime'yi bulduğunda süresine +15 saniye eklenmektedir.
+
+- Kelimenin uzunluğuna göre puan kazanmaktadır. Örneğin `tanım` kelimesini buldu o zaman 5 puan kazanmaktadır.
+
+- Bulunan her kelime `kelimelerin` adlı tablo içine eklenmektedir
+  ![img-4](public/images/4.jpg)

@@ -11,7 +11,7 @@ import Point from "./Point";
 import ResultModal from "./ResultModal";
 import FormArea from "./FormArea";
 import LettersHive from "./LettersHive";
-import Breadcrumbs from "./Breadcrumbs"
+import Breadcrumbs from "./Breadcrumbs";
 
 export default function Game({ language, dictionary }) {
   const {
@@ -31,9 +31,7 @@ export default function Game({ language, dictionary }) {
     setKnow,
   } = useGlobalContext();
 
-
-
-// console.log(pathname)
+  // console.log(pathname)
   let lettersShuffle = dictionary.letters;
   const ref = useRef();
   const handleClick = (e) => {
@@ -77,13 +75,13 @@ export default function Game({ language, dictionary }) {
         }
         setIsCorrect(true);
         setIsCorrectPoint(true);
-        toast.success(`Success Your Found Words`);
+        toast.success(`Congratulations. you found the right word`);
 
         setWords("");
         lettersShuffle = dictionary.letters.sort(() => Math.random() - 0.5);
       } else {
         console.log("bu kelşme");
-        toast.error(`Bu kelime Bulundu`);
+        toast.error(`This Word Found`);
       }
 
       setTimer((prev) => (prev += 15));
@@ -109,8 +107,8 @@ export default function Game({ language, dictionary }) {
 
   return (
     <div className="mx-auto max-w-8xl h-[100%] my-6">
-    <Breadcrumbs language={language}/>
-    
+      <Breadcrumbs language={language} />
+
       <div className="flex max-w-xl mx-auto items-center justify-between  p-4">
         <Timer />
         <WordsTable language={language} />
@@ -131,10 +129,11 @@ export default function Game({ language, dictionary }) {
           </div>
         )}
       </div>
-   
+
       <ResultModal dictionary={dictionary} language={language} />
 
       <ToastContainer
+        className="rounded-md  text-sm p-4"
         autoClose={1400}
         pauseOnFocusLoss={true}
         pauseOnHover={false}
