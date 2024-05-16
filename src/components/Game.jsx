@@ -29,6 +29,7 @@ export default function Game({ language, dictionary }) {
     setInCorrectWord,
     setRestartBtn,
     setKnow,
+    isCorrect,
   } = useGlobalContext();
 
   // console.log(pathname)
@@ -52,49 +53,64 @@ export default function Game({ language, dictionary }) {
 
   function handleShowText(e) {
     e.preventDefault();
-    // let newData = words.join("");
     const filter = dictionary.words.find((word, index) => {
-      //  console.log(word);
       return word === words;
     });
     setFilterWords(filter);
-
-    if (filter !== undefined) {
-      if (!matchWords.includes(filter)) {
-        setMatchWords([...matchWords, filter]);
-        if (filter.length === 7) {
-          setPoint((prev) => (prev += filter?.length));
-        } else if (words.length === 6) {
-          setPoint((prev) => (prev += filter?.length));
-        } else if (words.length === 5) {
-          setPoint((prev) => (prev += filter?.length));
-        } else if (words.length === 4) {
-          setPoint((prev) => (prev += filter?.length));
-        } else {
-          setPoint((prev) => (prev += 1));
-        }
-        setIsCorrect(true);
-        setIsCorrectPoint(true);
-        toast.success(`Congratulations. you found the right word`);
-
-        setWords("");
-        lettersShuffle = dictionary.letters.sort(() => Math.random() - 0.5);
-      } else {
-        console.log("bu kelşme");
-        toast.error(`This Word Found`);
-      }
-
-      setTimer((prev) => (prev += 15));
-
-      setTimeout(() => {
-        setIsCorrect(false);
-      }, [1500]);
+    if (words.length <= 2) {
+      toast.warning(`${language === "turkish" ? "Çok Kısa" : "Too Short"}`);
     } else {
-      if (filter === undefined) {
-        setPoint((prev) => (prev -= 2));
-        setInCorrectWord((prev) => (prev += 1));
-        setIsCorrectPoint(false);
-        toast.error(`Words not found`);
+      if (filter !== undefined) {
+        if (!matchWords.includes(filter)) {
+          setMatchWords([...matchWords, filter]);
+          if (filter.length === 7) {
+            setPoint((prev) => (prev += filter?.length));
+          } else if (words.length === 6) {
+            setPoint((prev) => (prev += filter?.length));
+          } else if (words.length === 5) {
+            setPoint((prev) => (prev += filter?.length));
+          } else if (words.length === 4) {
+            setPoint((prev) => (prev += filter?.length));
+          } else {
+            setPoint((prev) => (prev += 1));
+          }
+          setIsCorrect(true);
+          setIsCorrectPoint(true);
+
+          toast.success(
+            `${
+              language === "turkish"
+                ? "Tebrikler. doğru kelimeyi buldun"
+                : "Congratulations. you found the right word"
+            }`
+          );
+         
+          setWords("");
+          lettersShuffle = dictionary.letters.sort(() => Math.random() - 0.5);
+        } else {
+          toast.error(
+            `${
+              language === "turkish" ? "Bu Kelime Bulundu" : "This Word Found"
+            }`
+          );
+        }
+
+        setTimer((prev) => (prev += 15));
+
+        setTimeout(() => {
+          setIsCorrect(false);
+        }, [1500]);
+      } else {
+        if (filter === undefined) {
+          setPoint((prev) => (prev -= 2));
+          setInCorrectWord((prev) => (prev += 1));
+          setIsCorrectPoint(false);
+          toast.error(
+            `${
+              language === "turkish" ? "Kelime Bulunamadı" : "Words not found"
+            }`
+          );
+        }
       }
     }
 
@@ -119,7 +135,11 @@ export default function Game({ language, dictionary }) {
 
       <div className="mt-6 flex flex-col items-center justify-center">
         {timer === 0 || (
-          <FormArea handleSubmit={handleShowText} language={language} />
+          <FormArea
+            handleSubmit={handleShowText}
+            language={language}
+            dictionary={dictionary}
+          />
         )}
 
         {timer === 0 && (

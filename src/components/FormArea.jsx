@@ -1,8 +1,19 @@
 "use client";
+import { useState } from "react";
 import { useGlobalContext } from "@/context/Context";
 
-const FormArea = ({ handleSubmit, language }) => {
-  const { words, setWords, isInput, setIsLetter } = useGlobalContext();
+const FormArea = ({ handleSubmit, language, dictionary }) => {
+  const { words, setWords, isInput, setIsLetter, setKeyValue, keyValue } =
+    useGlobalContext();
+
+
+
+  const handleKey = (e) => {
+    setKeyValue(e.key);
+    setTimeout(() => {
+      setKeyValue("");
+    }, 300);
+  };
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -13,12 +24,13 @@ const FormArea = ({ handleSubmit, language }) => {
           disabled={isInput}
           placeholder={language === "turkish" ? "Kelime Girin" : "Enter Words"}
           onChange={(e) => {
-            setWords(e.target.value.toLowerCase());
+            setWords(e.target.value.toLowerCase().trim());
 
             if (e.target.value) {
               setIsLetter(true);
             }
           }}
+          onKeyDown={handleKey}
         />
 
         <button

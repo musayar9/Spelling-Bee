@@ -35,9 +35,19 @@ const turkish = {
     "rakım",
     "akıntı",
     "tarım",
-    "ramak"
-    
-    
+    "ramak",
+    "akım",
+    "tarak",
+    "anmak",
+    "kanma",
+    "kanmak",
+    "tıkamak",
+    "takıntı",
+    "alın",
+    "alıntı",
+    "mantık",
+    "mantı",
+    "mat",
   ],
 };
 export default turkish;

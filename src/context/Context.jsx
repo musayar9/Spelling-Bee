@@ -24,7 +24,7 @@ const GameProvider = ({ children }) => {
   const [matchWords, setMatchWords] = useState([]);
   const [restartBtn, setRestartBtn] = useState(false);
   const [inCorrectWord, setInCorrectWord] = useState(0);
-
+  const [keyValue, setKeyValue] = useState("");
   const pathname = usePathname();
 
   useEffect(() => {
@@ -94,6 +94,9 @@ const GameProvider = ({ children }) => {
         setRestartBtn,
         know,
         setKnow,
+
+        keyValue,
+        setKeyValue,
       }}
     >
       {children}
