@@ -27,8 +27,6 @@ const turkish = {
     "tanı",
     "tan",
     "anı",
-    "malak",
-    "akıl",
     "matara",
     "tanrı",
     "tanık",
@@ -43,8 +41,6 @@ const turkish = {
     "kanmak",
     "tıkamak",
     "takıntı",
-    "alın",
-    "alıntı",
     "mantık",
     "mantı",
     "mat",
@@ -56,7 +52,14 @@ const turkish = {
     "karı",
     "kıta",
     "kır",
-    "kar"
+    "kar",
+    "lan",
+    "kantar",
+    "takı",
+    "kat",
+    "mıntıka",
+    "katarakt",
+    ""
   ],
 };
 export default turkish;

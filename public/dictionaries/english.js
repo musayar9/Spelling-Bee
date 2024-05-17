@@ -87,6 +87,11 @@ const english = {
     "sale",
     "seal",
     "eat",
+    "tear",
+    "tee",
+    "talent",
+    "letter",
+    "seller",
   ],
 };
 export default english;
