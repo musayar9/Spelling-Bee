@@ -48,6 +48,15 @@ const turkish = {
     "mantık",
     "mantı",
     "mat",
+    "nam",
+    "tam",
+    "kan",
+    "ram",
+    "rakı",
+    "karı",
+    "kıta",
+    "kır",
+    "kar"
   ],
 };
 export default turkish;
