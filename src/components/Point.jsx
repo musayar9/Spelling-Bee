@@ -1,6 +1,8 @@
 "use client";
 
 import { useGlobalContext } from "@/context/Context";
+
+/*Point controls component*/
 const Point = ({ language }) => {
   const { point, isCorrectPoint, filterWords } = useGlobalContext();
 

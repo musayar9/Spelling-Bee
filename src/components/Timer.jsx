@@ -1,5 +1,7 @@
 import { useGlobalContext } from "@/context/Context";
 import { formattedTime } from "./Funtcions";
+
+/*timer controls component */
 const Timer = () => {
   const { timer, isCorrect } = useGlobalContext();
 

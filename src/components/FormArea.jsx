@@ -1,10 +1,14 @@
 "use client";
 import { useGlobalContext } from "@/context/Context";
 
-const FormArea = ({ handleSubmit, language, dictionary }) => {
-  const { words, setWords, isInput, setIsLetter, setKeyValue, keyValue } =
+const FormArea = ({ handleSubmit, language }) => {
+  /* form control area and  word entry field*/
+
+
+  const { words, setWords, isInput, setIsLetter, setKeyValue } =
     useGlobalContext();
 
+  /* checking correct letters*/
   const handleKey = (e) => {
     setKeyValue(e.key);
     setTimeout(() => {

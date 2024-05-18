@@ -1,5 +1,7 @@
 "use client";
 import { useGlobalContext } from "@/context/Context";
+
+/*the button to start the game again and reset the game */
 const RestartBtn = ({ language }) => {
   const { handleRestart } = useGlobalContext();
 

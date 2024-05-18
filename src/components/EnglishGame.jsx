@@ -2,7 +2,12 @@
 
 import { useGlobalContext } from "@/context/Context";
 import Game from "./Game";
+
+/*English Game area */
+
 const EnglishGame = () => {
+
+
   const { englishDictionary } = useGlobalContext();
 
   return (

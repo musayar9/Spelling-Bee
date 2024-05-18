@@ -2,16 +2,15 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 const Breadcrumbs = ({ language }) => {
+  /*link area between pages */
+
   const pathname = usePathname();
 
   return (
     <div className="text-sm breadcrumbs max-w-xl mx-auto flex items-center justify-center drop-shadow-md">
       <ul>
         <li className="text-2xl ">
-          <Link href="/">
-            {" "}
-            {language === "turkish" ? "Ana Sayfa" : "Home"}
-          </Link>
+          <Link href="/"> {language === "turkish" ? "Ana Sayfa" : "Home"}</Link>
         </li>
 
         {pathname === "/turkish" && (

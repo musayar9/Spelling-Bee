@@ -1,5 +1,7 @@
 import { useGlobalContext } from "@/context/Context";
 
+
+/*letters showing in hive */
 const LettersHive = ({ letters, language }) => {
   const { words, keyValue } = useGlobalContext();
 

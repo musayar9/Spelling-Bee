@@ -12,6 +12,9 @@ import FormArea from "./FormArea";
 import LettersHive from "./LettersHive";
 import Breadcrumbs from "./Breadcrumbs";
 
+
+
+/*Game area */
 export default function Game({ language, dictionary }) {
   const {
     setPoint,
@@ -28,11 +31,12 @@ export default function Game({ language, dictionary }) {
     setInCorrectWord,
     setRestartBtn,
     setKnow,
-    isCorrect,
   } = useGlobalContext();
 
+  /*the words of the relevant language */
   let lettersShuffle = dictionary.letters;
 
+  /* checking the words found*/
   useEffect(() => {
     if (dictionary.words.length === matchWords.length) {
       setShow(true);
@@ -42,6 +46,7 @@ export default function Game({ language, dictionary }) {
     return;
   });
 
+  /*finding the right word, scoring and time control */
   function handleShowText(e) {
     e.preventDefault();
     const filter = dictionary.words.find((word) => {
@@ -75,7 +80,7 @@ export default function Game({ language, dictionary }) {
                 : "Congratulations. you found the right word"
             }`
           );
-         
+
           setWords("");
           lettersShuffle = dictionary.letters.sort(() => Math.random() - 0.5);
         } else {

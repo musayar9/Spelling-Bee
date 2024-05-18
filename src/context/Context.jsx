@@ -109,7 +109,7 @@ const GameProvider = ({ children }) => {
   );
 };
 
-
+/*created a custom hook */
 export const useGlobalContext = () => {
   return useContext(GameContext);
 };

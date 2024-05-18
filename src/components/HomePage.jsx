@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 
-
+/* Game introduction and language options area*/
 const HomePage = () => {
 
   return (

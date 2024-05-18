@@ -89,7 +89,21 @@ const turkish = {
     "katmak",
     "karın",
     "tır",
-    "tırmık"
+    "tırmık",
+    "tantana",
+    "tıkırtı",
+    "rant",
+    "kama",
+    "kaka",
+    "ırk",
+    "tıkmak",
+    "tıkınmak",
+    "kırmak",
+    "marka",
+    "arka",
+    "kart",
+    "akmak"
+    
   ],
 };
 export default turkish;

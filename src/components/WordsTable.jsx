@@ -4,6 +4,9 @@ import { useGlobalContext } from "@/context/Context";
 import { FaCheck } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import { FaTableList } from "react-icons/fa6";
+
+
+/*table showing words found */
 const WordsTable = ({ language }) => {
   const { matchWords, isCorrectPoint, point } = useGlobalContext();
 

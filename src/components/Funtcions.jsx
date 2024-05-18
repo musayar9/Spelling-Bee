@@ -1,3 +1,6 @@
+
+
+/*Formatting time in minutes and seconds */
 export const formattedTime = (time) => {
   const valueSeconds = 60;
   const minuteTime = Math.floor(time / valueSeconds)

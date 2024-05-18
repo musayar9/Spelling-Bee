@@ -2,6 +2,9 @@
 import { useGlobalContext } from "@/context/Context";
 import { MdClose } from "react-icons/md";
 import RestartBtn from "./RestartBtn";
+
+
+/*result display area */
 const ResultModal = ({ dictionary, language }) => {
   const { show, setShow, matchWords, inCorrectWord, point, know } =
     useGlobalContext();
