@@ -80,6 +80,16 @@ const turkish = {
     "katarakt",
     "mana",
     "kara",
+    "kırık",
+    "kırıntı",
+    "ırmak",
+    "takırtı",
+    "tıkamak",
+    "tımar",
+    "katmak",
+    "karın",
+    "tır",
+    "tırmık"
   ],
 };
 export default turkish;

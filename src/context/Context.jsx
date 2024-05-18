@@ -109,6 +109,7 @@ const GameProvider = ({ children }) => {
   );
 };
 
+
 export const useGlobalContext = () => {
   return useContext(GameContext);
 };
