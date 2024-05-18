@@ -7,11 +7,11 @@ import { usePathname } from "next/navigation";
 const GameContext = createContext();
 
 const GameProvider = ({ children }) => {
-
-
+  /*variables was created to use English and Turkish dictionaries. */
   let englishDictionary = english;
   let turkishDictionary = turkish;
 
+  /*The states to be used for the components were also defined */
   const [point, setPoint] = useState(0);
   const [timer, setTimer] = useState(60);
   const [isLetter, setIsLetter] = useState(false);
@@ -29,6 +29,7 @@ const GameProvider = ({ children }) => {
   const pathname = usePathname();
 
   useEffect(() => {
+    /*If you are on the home page, all data will be cleared. */
     if (pathname === "/") {
       setShow(false);
       setMatchWords([]);
@@ -40,6 +41,7 @@ const GameProvider = ({ children }) => {
       setIsInput(false);
     }
 
+    /*time and input controls */
     if (isLetter && timer > 0) {
       const interval = setInterval(() => {
         setTimer((prev) => prev - 1);
@@ -54,6 +56,7 @@ const GameProvider = ({ children }) => {
     }
   }, [isLetter, timer, setTimer, pathname]);
 
+  /*game reset button */
   const handleRestart = () => {
     setShow(false);
     setMatchWords([]);
@@ -66,6 +69,7 @@ const GameProvider = ({ children }) => {
   };
 
   return (
+    /*area where data is transferred to subcomponents */
     <GameContext.Provider
       value={{
         englishDictionary,
