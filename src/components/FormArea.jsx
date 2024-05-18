@@ -1,12 +1,9 @@
 "use client";
-import { useState } from "react";
 import { useGlobalContext } from "@/context/Context";
 
 const FormArea = ({ handleSubmit, language, dictionary }) => {
   const { words, setWords, isInput, setIsLetter, setKeyValue, keyValue } =
     useGlobalContext();
-
-
 
   const handleKey = (e) => {
     setKeyValue(e.key);

@@ -78,7 +78,8 @@ const turkish = {
     "kat",
     "mıntıka",
     "katarakt",
-    ""
+    "mana",
+    "kara",
   ],
 };
 export default turkish;

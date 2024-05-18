@@ -2,22 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 .Toastify__toast-body {
   font-family: "Lobster", sans-serif;
   font-weight: 400;
-
 }
 
-
-#hexGrid {
+#hiveGrid {
   display: grid;
   grid-gap: 6px;
-  grid-template-columns: repeat(
-    4,
-    minmax(0, 1fr)
-  ); /* fr yerine minmax(0, 1fr) kullanıldı */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   width: 250px;
   margin: 0 auto;
   font-size: 0.9em;
@@ -25,94 +18,67 @@
   overflow: hidden;
 }
 
-.hex {
+.hive {
   grid-column-end: span 2;
   position: relative;
   visibility: hidden;
-  background-color: yellow; 
-  outline: 1px solid transparent; /* fix for jagged edges in FF on hover transition */
+  background-color: yellow;
+  outline: 1px solid transparent;
 }
 
-.hex::after {
+.hive::after {
   content: "";
   display: block;
-  padding-bottom: 95.602%; /* = 100 / tan(60) * 1.5 86.602% */
+  padding-bottom: 95.602%;
 }
 
-.hexIn {
+.hiveArea {
   position: absolute;
   width: 100%;
-  padding-bottom: 115.47%; /* = width / sin(60) */
+  padding-bottom: 115.47%;
   overflow: hidden;
   visibility: hidden;
-  outline: 1px solid transparent; /* fix for jagged edges in FF on hover transition */
-  transform: rotate3d(0, 0, 1, -60deg) skewY(30deg); /* -webkit-transform, -ms-transform kaldırıldı */
+  outline: 1px solid transparent;
+  transform: rotate3d(0, 0, 1, -60deg) skewY(30deg);
 }
 
-.hexIn * {
+.hiveArea * {
   position: absolute;
   visibility: visible;
-  outline: 1px solid transparent; /* fix for jagged edges in FF on hover transition */
+  outline: 1px solid transparent;
 }
 
-.hexLink {
-  /* display: block;
-  width: 100%;
-  height: 100%;
-  text-align: center; */
-  /* background-color: rgba(
-    255,
-    211,
-    0,
-    0.82
-  );  */
-  /* overflow: hidden; */
-  transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg); /* -webkit-transform, -ms-transform kaldırıldı */
+.hiveShape {
+  transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
 }
 
-
-
-/* .hex p {
-  width: 100%;
-  padding: 38%;
-  box-sizing: border-box;
-  background-color: transparent;
-  font-weight: 800;
-  font-size: 1.4em;
-  color: #000;
-
-} */
-
-.hexLink:hover p,
-.hexLink:focus p {
+.hiveShape:hover p,
+.hiveShape:focus p {
   background-color: rgba(
     255,
     177,
     3,
     0.76
-  ); /* #ffb103c2 rgba() ile değiştirildi */
+  );
 }
 
-#center-letter.hexLink:hover p,
-#center-letter.hexLink:focus p {
+#center-letter.hiveShape:hover p,
+#center-letter.hiveShape:focus p {
   background-color: gray;
 }
 
-#hexGrid {
-  grid-template-columns: repeat(
-    6,
-    minmax(0, 1fr)
-  ); /* fr yerine minmax(0, 1fr) kullanıldı */
+#hiveGrid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   padding-bottom: 5.4%;
   margin-bottom: 2vh;
 }
 
-.hex:nth-child(5n + 1) {
+.hive:nth-child(5n + 1) {
   /* first hexagon of odd rows */
   grid-column-start: 2;
 }
 
-.hex:nth-child(5n + 3) {
+.hive:nth-child(5n + 3) {
   /* first hexagon of even rows */
   grid-column-start: 1;
 }

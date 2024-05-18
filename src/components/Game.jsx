@@ -3,7 +3,6 @@ import { useGlobalContext } from "@/context/Context";
 import { useEffect, useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import RestartBtn from "./RestartBtn";
 import Timer from "./Timer";
 import WordsTable from "./WordsTable";
@@ -32,15 +31,7 @@ export default function Game({ language, dictionary }) {
     isCorrect,
   } = useGlobalContext();
 
-  // console.log(pathname)
   let lettersShuffle = dictionary.letters;
-  const ref = useRef();
-  const handleClick = (e) => {
-    const clickedElement = e.target.closest("li");
-    const content = clickedElement.querySelector("p").textContent;
-
-    setWords([...words, content]);
-  };
 
   useEffect(() => {
     if (dictionary.words.length === matchWords.length) {
@@ -53,7 +44,7 @@ export default function Game({ language, dictionary }) {
 
   function handleShowText(e) {
     e.preventDefault();
-    const filter = dictionary.words.find((word, index) => {
+    const filter = dictionary.words.find((word) => {
       return word === words;
     });
     setFilterWords(filter);

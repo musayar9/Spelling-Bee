@@ -7,6 +7,8 @@ import { usePathname } from "next/navigation";
 const GameContext = createContext();
 
 const GameProvider = ({ children }) => {
+
+
   let englishDictionary = english;
   let turkishDictionary = turkish;
 
@@ -15,7 +17,6 @@ const GameProvider = ({ children }) => {
   const [isLetter, setIsLetter] = useState(false);
   const [isInput, setIsInput] = useState(false);
   const [show, setShow] = useState(false);
-
   const [words, setWords] = useState("");
   const [know, setKnow] = useState(false);
   const [filterWords, setFilterWords] = useState("");
