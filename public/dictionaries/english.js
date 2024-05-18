@@ -92,6 +92,17 @@ const english = {
     "talent",
     "letter",
     "seller",
+    "ten",
+    "tent",
+    "eaten",
+    "tell",
+    "enter",
+    "latest",
+    "erase",
+    "test",
+    "tester",
+    
+    
   ],
 };
 export default english;
