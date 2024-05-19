@@ -19,7 +19,7 @@ https://github.com/musayar9/Spelling-Bee/assets/96313325/2d52ec52-8390-402a-b554
 
 ## İçerik
 
-Bu projede NextJs ve Tailwindcss kullanılarak bir `Spelling Bee Game` oyunu geliştirildi.
+Bu oyun  NextJs ve Tailwindcss teknolojileri kullanılarak  geliştirildi.
 
 Proje içinde durum (state) yönetimi için useContext yapısı kullanıldı. Burada oluşturulan değişkenler diğer bileşenlere (components) dağıtıldı.
 

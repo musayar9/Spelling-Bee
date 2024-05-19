@@ -102,8 +102,18 @@ const turkish = {
     "marka",
     "arka",
     "kart",
-    "akmak"
-    
+    "akmak",
+    "tartı",
+    "tart",
+    "tartmak",
+    "kırım",
+    "takat",
+    "tat",
+    "tırt",
+    "tırtık",
+    "katma",
+    "atak",
+    "ataman"
   ],
 };
 export default turkish;

@@ -3,7 +3,6 @@ import Link from "next/link";
 
 /* Game introduction and language options area*/
 const HomePage = () => {
-
   return (
     <div className="max-w-3xl mx-auto my-24">
       <div className="flex flex-col items-center justify-center ">
@@ -15,7 +14,7 @@ const HomePage = () => {
           that can be formed using these seven letters. You have one minute to
           find the words. For each word you find correctly, you will earn 15
           seconds and points equal to the length of the word. For each wrong
-          word you lose 2 points
+          word you lose 2 points.
         </p>
 
         <h4 className="text-slate-500">Choose the version you want to play</h4>

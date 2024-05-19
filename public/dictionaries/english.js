@@ -101,7 +101,12 @@ const english = {
     "erase",
     "test",
     "tester",
-    
+    "reset",
+    "teaser",
+    "teller",
+    "leaser",
+    "lease",
+    "ant"
     
   ],
 };

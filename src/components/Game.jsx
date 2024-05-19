@@ -140,7 +140,6 @@ export default function Game({ language, dictionary }) {
 
         {timer === 0 && (
           <div className="mt-4 flex items-center justify-center">
-            {" "}
             <RestartBtn language={language} />
           </div>
         )}
