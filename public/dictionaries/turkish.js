@@ -35,6 +35,7 @@ const turkish = {
     "tarım",
     "ramak",
     "akım",
+    "akın",
     "tarak",
     "anmak",
     "kanma",
