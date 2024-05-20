@@ -2,6 +2,7 @@ const english = {
   letters: ["a", "e", "r", "t", "n", "s", "l"],
 
   words: [
+    "learn",
     "street",
     "steel",
     "state",
@@ -106,8 +107,7 @@ const english = {
     "teller",
     "leaser",
     "lease",
-    "ant"
-    
+    "ant",
   ],
 };
 export default english;
