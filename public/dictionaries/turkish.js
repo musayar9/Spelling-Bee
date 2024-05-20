@@ -114,7 +114,8 @@ const turkish = {
     "tırtık",
     "katma",
     "atak",
-    "ataman"
+    "ataman",
+    "artı",
   ],
 };
 export default turkish;
