@@ -108,6 +108,9 @@ const english = {
     "leaser",
     "lease",
     "ant",
+    "sealer",
+    "taller"
+    "letters"
   ],
 };
 export default english;
